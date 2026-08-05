@@ -7,6 +7,7 @@ import ServiceDetailContent from "@/components/ServiceDetailContent";
 import ServiceDetailHero from "@/components/ServiceDetailHero";
 import SiteHeader from "@/components/SiteHeader";
 import PortfolioCarousel from "@/components/PortfolioCarousel";
+import WebDesignShowcase from "@/components/WebDesignShowcase";
 import { MonitorCog } from "lucide-react";
 
 export default function ServiceWebDesign() {
@@ -103,6 +104,8 @@ export default function ServiceWebDesign() {
             <PortfolioCarousel items={portfolioItems} accentColor={serviceColor} />
           </div>
         </section>
+        
+        <WebDesignShowcase color={serviceColor} />
         
         <ServiceDetailCTA
           title="Ready to Build Something Great?"

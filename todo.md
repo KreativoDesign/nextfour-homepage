@@ -25,3 +25,4 @@
 - [x] Configure the official favicon in the website head.
 - [x] Validate the favicon integration.
 - [x] Push the favicon update to GitHub and verify the published commit.
+- [x] Enhance the Web Design & Development service page with a matching visual showcase section.
