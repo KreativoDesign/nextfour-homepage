@@ -172,7 +172,7 @@ button:focus-visible, a:focus-visible, [tabindex="0"]:focus-visible {
 .site-header.is-scrolled::before { opacity: 1; border-color: rgba(190, 255, 167, 0.08); backdrop-filter: blur(18px); }
 .site-header__inner { display: flex; align-items: center; justify-content: space-between; min-height: 74px; gap: 24px; }
 .brand-lockup { display: inline-flex; align-items: center; gap: 8px; color: var(--nf-white); text-decoration: none; flex-shrink: 0; }
-.brand-lockup__mark { width: 41px; height: 41px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(184, 255, 0, 0.28)); }
+.brand-lockup__mark { width: auto; height: 52px; max-width: 128px; object-fit: contain; object-position: left center; filter: drop-shadow(0 0 8px rgba(184, 255, 0, 0.28)); }
 .brand-lockup__type { display: grid; grid-template-columns: auto auto; grid-template-rows: auto auto; line-height: 0.88; letter-spacing: -0.085em; }
 .brand-lockup__next, .brand-lockup__four { font-family: "Urbanist", Arial, sans-serif; font-size: 1.55rem; font-weight: 900; }
 .brand-lockup__next { color: #f4f6f3; }
@@ -349,7 +349,7 @@ button:focus-visible, a:focus-visible, [tabindex="0"]:focus-visible {
 
 @media (max-width: 560px) {
   .nf-container { width: min(100% - 32px, 1392px); }
-  .brand-lockup__mark { width: 35px; height: 35px; }
+  .brand-lockup__mark { width: auto; height: 39px; max-width: 100px; }
   .brand-lockup__next, .brand-lockup__four { font-size: 1.25rem; }
   .brand-lockup__descriptor { margin-top: 4px; font-size: 0.35rem; }
   .header-cta { display: none; }

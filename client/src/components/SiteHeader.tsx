@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { navItems } from "@/lib/nextfour-data";
 
-const markUrl = "/manus-storage/nextfour-signal-mark_43b0f3f4_d243075f.png";
+const markUrl = "/manus-storage/nextfour-logo_e4958a45.png";
 
 export default function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,7 +42,7 @@ export default function SiteHeader() {
     <header className={`site-header ${isScrolled ? "is-scrolled" : ""}`}>
       <div className="nf-container site-header__inner">
         <a className="brand-lockup" href="#home" aria-label="NextFour home" onClick={() => handleNav("Home")}>
-          <img className="brand-lockup__mark" src={markUrl} alt="NextFour" style={{height: '81px', width: '172px', paddingTop: '4px', paddingBottom: '12px'}} />
+          <img className="brand-lockup__mark" src={markUrl} alt="NextFour" />
         </a>
 
         <nav className="site-nav" aria-label="Primary navigation">

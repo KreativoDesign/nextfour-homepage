@@ -16,3 +16,6 @@
 - [x] Validate the transferred imagery across responsive layouts.
 - [x] Push the recent image-asset and code updates to GitHub.
 - [x] Verify the GitHub repository reflects the pushed commit.
+- [x] Extract the official NextFour logo from the reference site.
+- [x] Add the transferred logo to the responsive site header.
+- [x] Validate the logo display on desktop and mobile.
