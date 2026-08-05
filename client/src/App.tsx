@@ -5,33 +5,35 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import ServiceWebDesign from "./pages/ServiceWebDesign";
+import ServiceBranding from "./pages/ServiceBranding";
+import ServiceMarketing from "./pages/ServiceMarketing";
+import ServiceBusiness from "./pages/ServiceBusiness";
+import ServiceStartup from "./pages/ServiceStartup";
+import ServiceCRM from "./pages/ServiceCRM";
 
 function Router() {
-  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
+      <Route path="/" component={Home} />
+      <Route path="/services/web-design" component={ServiceWebDesign} />
+      <Route path="/services/branding" component={ServiceBranding} />
+      <Route path="/services/marketing" component={ServiceMarketing} />
+      <Route path="/services/business-technology" component={ServiceBusiness} />
+      <Route path="/services/startup-support" component={ServiceStartup} />
+      <Route path="/services/crm-management" component={ServiceCRM} />
+      <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
   );
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
+      <ThemeProvider defaultTheme="dark">
         <TooltipProvider>
-          <Toaster />
+          <Toaster theme="dark" position="bottom-center" />
           <Router />
         </TooltipProvider>
       </ThemeProvider>
