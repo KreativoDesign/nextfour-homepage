@@ -17,22 +17,22 @@ export default function ServiceWebDesign() {
     {
       id: "eezi-kitchens",
       title: "Eezi Kitchens",
-      image: "/manus-storage/EeziKitchens_0c92fa12.jpg",
+      image: "/manus-storage/carousel-eezi-kitchens_de918fd4.jpg",
     },
     {
       id: "shift-bridge",
       title: "ShiftBridge",
-      image: "/manus-storage/ShiftBridge_3c53ef8e.jpg",
+      image: "/manus-storage/carousel-shiftbridge_85049ac7.jpg",
     },
     {
       id: "clure-projects",
       title: "Clure Projects",
-      image: "/manus-storage/ClureProjects_f3a30bcc.jpg",
+      image: "/manus-storage/carousel-clure-projects_0ccc3a8e.jpg",
     },
     {
       id: "clure-projects-website",
       title: "Clure Projects Website",
-      image: "/manus-storage/ClureProjectsWebsite_10909e94.jpg",
+      image: "/manus-storage/carousel-clure-projects-website_bd49e9c8.jpg",
     },
   ];
 
