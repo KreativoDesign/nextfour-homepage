@@ -8,3 +8,5 @@
 - [x] Verify access to the specified repository and its default branch.
 - [x] Configure a GitHub-tracked branch for future project changes.
 - [x] Verify direct-push readiness without publishing changes.
+- [x] Import the current repository code into the managed project.
+- [x] Validate the imported project and preserve a recoverable state.
