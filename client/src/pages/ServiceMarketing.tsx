@@ -9,6 +9,7 @@ import SiteHeader from "@/components/SiteHeader";
 import { Megaphone } from "lucide-react";
 import SocialPostShowcase from "@/components/SocialPostShowcase";
 import DigitalMarketingShowcase from "@/components/DigitalMarketingShowcase";
+import DigitalMarketingPricingTiers from "@/components/DigitalMarketingPricingTiers";
 
 export default function ServiceMarketing() {
   const serviceColor = "#20B8FF";
@@ -73,7 +74,7 @@ export default function ServiceMarketing() {
         
         <DigitalMarketingShowcase color={serviceColor} />
 
-        <SocialPostShowcase color={serviceColor} />
+        <DigitalMarketingPricingTiers color={serviceColor} />
 
         <ServiceDetailCTA
           title="Ready to Grow Your Audience?"
