@@ -26,3 +26,18 @@ export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 
 // TODO: Add your tables here
+
+export const inquiries = mysqlTable("inquiries", {
+  id: int("id").autoincrement().primaryKey(),
+  packageName: varchar("packageName", { length: 128 }).notNull(),
+  packagePrice: varchar("packagePrice", { length: 64 }).notNull(),
+  name: varchar("name", { length: 128 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  phone: varchar("phone", { length: 64 }),
+  message: text("message"),
+  status: mysqlEnum("status", ["pending", "contacted", "completed"]).default("pending").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type Inquiry = typeof inquiries.$inferSelect;
+export type InsertInquiry = typeof inquiries.$inferInsert;

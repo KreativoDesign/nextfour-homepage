@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Check, Target, TrendingUp, BarChart3, Handshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import InquiryModal from "./InquiryModal";
 
 interface PricingTier {
   name: string;
@@ -21,6 +23,7 @@ interface DigitalMarketingPricingTiersProps {
 export default function DigitalMarketingPricingTiers({
   color,
 }: DigitalMarketingPricingTiersProps) {
+  const [selectedTier, setSelectedTier] = useState<{ name: string; price: string; accentColor: string } | null>(null);
   const pricingTiers: PricingTier[] = [
     {
       name: "FOUNDATION",
@@ -183,6 +186,7 @@ export default function DigitalMarketingPricingTiers({
 
               {/* CTA Button */}
               <Button
+                onClick={() => setSelectedTier({ name: tier.name, price: tier.price, accentColor: tier.accentColor })}
                 className={`w-full font-bold text-sm py-3 rounded-lg transition-all duration-300 ${tier.ctaColor}`}
               >
                 {tier.cta}
@@ -196,6 +200,17 @@ export default function DigitalMarketingPricingTiers({
           Ad spend is paid directly to the platforms (Meta, Google) and is NOT included in the monthly management fee.
         </p>
       </div>
+
+      {/* Inquiry Modal */}
+      {selectedTier && (
+        <InquiryModal
+          isOpen={!!selectedTier}
+          onClose={() => setSelectedTier(null)}
+          packageName={selectedTier.name}
+          packagePrice={selectedTier.price}
+          accentColor={selectedTier.accentColor}
+        />
+      )}
     </section>
   );
 }

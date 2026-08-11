@@ -2,9 +2,10 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
+import { submitInquiry } from "./db";
+import { z } from "zod";
 
 export const appRouter = router({
-    // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly
   system: systemRouter,
   auth: router({
     me: publicProcedure.query(({ ctx }) => ctx.user),
@@ -17,12 +18,30 @@ export const appRouter = router({
     }),
   }),
 
-  // TODO: add feature routers here, e.g.
-  // todo: router({
-  //   list: protectedProcedure.query(({ ctx }) =>
-  //     db.getUserTodos(ctx.user.id)
-  //   ),
-  // }),
+  inquiries: router({
+    submit: publicProcedure
+      .input(
+        z.object({
+          packageName: z.string().min(1),
+          packagePrice: z.string().min(1),
+          name: z.string().min(1, "Name is required"),
+          email: z.string().email("Invalid email"),
+          phone: z.string().optional(),
+          message: z.string().min(1, "Message is required"),
+        })
+      )
+      .mutation(async ({ input }) => {
+        await submitInquiry({
+          packageName: input.packageName,
+          packagePrice: input.packagePrice,
+          name: input.name,
+          email: input.email,
+          phone: input.phone,
+          message: input.message,
+        });
+        return { success: true };
+      }),
+  }),
 });
 
 export type AppRouter = typeof appRouter;
