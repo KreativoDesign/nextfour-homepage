@@ -942,3 +942,122 @@ button:focus-visible, a:focus-visible, [tabindex="0"]:focus-visible {
     filter: blur(60px) !important;
   }
 }
+
+/* Trinity CRM product spotlight */
+.trinity-crm {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--nf-line);
+}
+
+.trinity-crm__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.trinity-crm__intro {
+  max-width: 760px;
+  margin-bottom: 56px;
+}
+
+.trinity-crm__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.trinity-crm__title {
+  margin-top: 18px;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.trinity-crm__description {
+  max-width: 680px;
+  margin-top: 18px;
+  color: var(--nf-muted);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.trinity-crm__groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.trinity-crm__group {
+  padding: 28px;
+  border: 1px solid var(--nf-line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.trinity-crm__group-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.trinity-crm__group-heading h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.trinity-crm__group-description {
+  margin-top: 14px;
+  color: var(--nf-muted);
+  line-height: 1.6;
+}
+
+.trinity-crm__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trinity-crm__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--nf-white);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.trinity-crm__list li svg {
+  flex: 0 0 auto;
+  margin-top: 3px;
+}
+
+@media (max-width: 768px) {
+  .trinity-crm {
+    padding: 72px 0;
+  }
+
+  .trinity-crm__container {
+    padding: 0 24px;
+  }
+
+  .trinity-crm__intro {
+    margin-bottom: 36px;
+  }
+
+  .trinity-crm__groups {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .trinity-crm__group {
+    padding: 22px 20px;
+  }
+}

@@ -2,6 +2,7 @@ import { Database } from "lucide-react";
 import ServiceDetailHero from "@/components/ServiceDetailHero";
 import ServiceDetailContent from "@/components/ServiceDetailContent";
 import ServiceDetailCTA from "@/components/ServiceDetailCTA";
+import TrinityCrmSection from "@/components/TrinityCrmSection";
 
 export default function ServiceCRM() {
   const service = {
@@ -58,6 +59,8 @@ export default function ServiceCRM() {
           },
         ]}
       />
+
+      <TrinityCrmSection color={service.color} />
 
       <ServiceDetailCTA
         title="Ready to Stop Losing Leads?"
