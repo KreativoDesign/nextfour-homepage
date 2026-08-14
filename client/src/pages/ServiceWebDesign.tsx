@@ -79,9 +79,9 @@ export default function ServiceWebDesign() {
       <div className="ambient ambient--one" aria-hidden="true" />
       <div className="ambient ambient--two" aria-hidden="true" />
       <div className="page-grid" aria-hidden="true" />
-      
+
       <SiteHeader />
-      
+
       <main id="main-content">
         <ServiceDetailHero
           title="Web Design & Development"
@@ -90,9 +90,9 @@ export default function ServiceWebDesign() {
           glow={serviceGlow}
           icon={MonitorCog}
         />
-        
+
         <ServiceDetailContent sections={contentSections} color={serviceColor} />
-        
+
         <section className="portfolio-section">
           <div className="nf-container">
             <div className="portfolio-section__header">
@@ -104,9 +104,9 @@ export default function ServiceWebDesign() {
             <PortfolioCarousel items={portfolioItems} accentColor={serviceColor} />
           </div>
         </section>
-        
+
         <WebDesignShowcase color={serviceColor} />
-        
+
         <ServiceDetailCTA
           title="Ready to Build Something Great?"
           description="Let's discuss how we can create a digital experience that moves your business forward."

@@ -26,3 +26,7 @@
 - [x] Validate the favicon integration.
 - [x] Push the favicon update to GitHub and verify the published commit.
 - [x] Enhance the Web Design & Development service page with a matching visual showcase section.
+- [x] Replace the Web Design showcase "Development Process" block with an SEO block and matching background image.
+- [x] Validate the updated SEO showcase on desktop and mobile.
+- [x] Push the SEO showcase update to GitHub and verify the published commit.
+

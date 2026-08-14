@@ -10,9 +10,9 @@ export default function WebDesignShowcase({ color }: WebDesignShowcaseProps) {
       image: "/manus-storage/web-design-ui-showcase_c24f724e.png",
     },
     {
-      title: "Development Process",
-      description: "From concept to code, we follow a structured process that ensures quality and performance.",
-      image: "/manus-storage/web-design-development-process_80287448.png",
+      title: "SEO",
+      description: "We optimize every page for discoverability, stronger rankings, and sustainable organic growth.",
+      image: "/manus-storage/web-design-seo-optimization_cbd37efa.png",
     },
     {
       title: "Responsive Design",
