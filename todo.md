@@ -30,3 +30,6 @@
 - [x] Validate the updated SEO showcase on desktop and mobile.
 - [x] Push the SEO showcase update to GitHub and verify the published commit.
 
+- [x] Make the homepage portfolio card rail loop continuously during wheel and pointer interactions.
+- [x] Make each homepage portfolio card clickable to its matching service detail page.
+- [x] Validate the homepage carousel interactions responsively and synchronize the update to GitHub.

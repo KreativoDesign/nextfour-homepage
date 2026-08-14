@@ -4,7 +4,7 @@
  */
 import type { CSSProperties } from "react";
 import { ArrowRight } from "lucide-react";
-import { useLocation } from "wouter";
+import { Link } from "wouter";
 import type { Service } from "@/lib/nextfour-data";
 
 type ServiceCardProps = {
@@ -14,19 +14,19 @@ type ServiceCardProps = {
 
 export default function ServiceCard({ service, index }: ServiceCardProps) {
   const Icon = service.icon;
-  const [, setLocation] = useLocation();
   const styles = {
     "--service-accent": service.color,
     "--service-glow": service.glow,
     animationDelay: `${120 + index * 90}ms`,
   } as CSSProperties;
 
-  const handleViewMore = () => {
-    setLocation(service.route);
-  };
-
   return (
-    <article className="service-card" style={styles} aria-labelledby={`service-title-${index}`}>
+    <Link
+      href={service.route}
+      className="service-card"
+      style={styles}
+      aria-labelledby={`service-title-${index}`}
+    >
       <div className="service-card__wash" aria-hidden="true" />
       <div className="service-card__content">
         <div className="service-card__icon" aria-hidden="true">
@@ -44,14 +44,11 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
           decoding="async"
         />
       </div>
-      <a
-        href={service.route}
-        className="service-card__cta"
-        aria-label={`View more about ${service.title}`}
-      >
+      <span className="service-card__cta" aria-hidden="true">
         <span>View more</span>
-        <ArrowRight size={20} strokeWidth={1.45} aria-hidden="true" />
-      </a>
-    </article>
+        <ArrowRight size={20} strokeWidth={1.45} />
+      </span>
+    </Link>
   );
 }
+

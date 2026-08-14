@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState, type KeyboardEvent, type WheelEvent }
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { services } from "@/lib/nextfour-data";
+import { getLoopingIndex } from "@/lib/carousel";
 import ServiceCard from "@/components/ServiceCard";
 
 export default function ServiceCarousel() {
@@ -35,22 +36,31 @@ export default function ServiceCarousel() {
     };
   }, [emblaApi, updateSelection]);
 
+  const scrollByDirection = useCallback((direction: 1 | -1) => {
+    if (!emblaApi) return;
+    const snapList = emblaApi.scrollSnapList();
+    if (!snapList.length) return;
+
+    const currentIndex = emblaApi.selectedScrollSnap();
+    const nextIndex = getLoopingIndex(currentIndex, direction, snapList.length);
+    emblaApi.scrollTo(nextIndex);
+  }, [emblaApi]);
+
   const handleWheel = (event: WheelEvent<HTMLDivElement>) => {
-    if (!emblaApi || Math.abs(event.deltaY) < 3) return;
+    const delta = Math.abs(event.deltaY) >= Math.abs(event.deltaX) ? event.deltaY : event.deltaX;
+    if (Math.abs(delta) < 3) return;
     event.preventDefault();
-    if (event.deltaY > 0) emblaApi.scrollNext();
-    else emblaApi.scrollPrev();
+    scrollByDirection(delta > 0 ? 1 : -1);
   };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (!emblaApi) return;
     if (event.key === "ArrowRight") {
       event.preventDefault();
-      emblaApi.scrollNext();
+      scrollByDirection(1);
     }
     if (event.key === "ArrowLeft") {
       event.preventDefault();
-      emblaApi.scrollPrev();
+      scrollByDirection(-1);
     }
   };
 
@@ -63,7 +73,7 @@ export default function ServiceCarousel() {
           onWheel={handleWheel}
           onKeyDown={handleKeyDown}
           tabIndex={0}
-          aria-label="Service carousel. Use left and right arrow keys to move through services."
+          aria-label="Looping service carousel. Use the mouse wheel, touchpad, drag, or left and right arrow keys to move through services."
         >
           <div className="carousel-track">
             {services.map((service, index) => (
@@ -75,15 +85,15 @@ export default function ServiceCarousel() {
         </div>
 
         <div className="carousel-edge-controls" aria-label="Carousel directional controls">
-          <button className="carousel-arrow carousel-arrow--edge" type="button" onClick={() => emblaApi?.scrollPrev()} aria-label="Previous service">
+          <button className="carousel-arrow carousel-arrow--edge" type="button" onClick={() => scrollByDirection(-1)} aria-label="Previous service">
             <ChevronLeft size={23} strokeWidth={1.45} aria-hidden="true" />
           </button>
-          <button className="carousel-arrow carousel-arrow--edge" type="button" onClick={() => emblaApi?.scrollNext()} aria-label="Next service">
+          <button className="carousel-arrow carousel-arrow--edge" type="button" onClick={() => scrollByDirection(1)} aria-label="Next service">
             <ChevronRight size={23} strokeWidth={1.45} aria-hidden="true" />
           </button>
         </div>
         <div className="carousel-controls">
-          <button className="carousel-arrow carousel-arrow--inline" type="button" onClick={() => emblaApi?.scrollPrev()} aria-label="Previous service">
+          <button className="carousel-arrow carousel-arrow--inline" type="button" onClick={() => scrollByDirection(-1)} aria-label="Previous service">
             <ChevronLeft size={23} strokeWidth={1.45} aria-hidden="true" />
           </button>
           <div className="carousel-dots" role="tablist" aria-label="Choose a service">
@@ -99,7 +109,7 @@ export default function ServiceCarousel() {
               />
             ))}
           </div>
-          <button className="carousel-arrow carousel-arrow--inline" type="button" onClick={() => emblaApi?.scrollNext()} aria-label="Next service">
+          <button className="carousel-arrow carousel-arrow--inline" type="button" onClick={() => scrollByDirection(1)} aria-label="Next service">
             <ChevronRight size={23} strokeWidth={1.45} aria-hidden="true" />
           </button>
         </div>
@@ -107,3 +117,4 @@ export default function ServiceCarousel() {
     </section>
   );
 }
+
