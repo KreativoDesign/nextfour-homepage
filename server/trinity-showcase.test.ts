@@ -22,5 +22,12 @@ describe("Trinity CRM showcase", () => {
     expect(trinityDetails.every((detail) =>
       detail.content.length > 80 && detail.points.length === 3
     )).toBe(true);
+    const onboarding = trinityDetails.find((detail) => detail.value === "onboarding");
+    expect(onboarding?.steps?.map((step) => step.title)).toEqual([
+      "Discover",
+      "Configure",
+      "Launch",
+      "Optimise",
+    ]);
   });
 });

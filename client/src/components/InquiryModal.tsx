@@ -7,12 +7,17 @@ import { Label } from "@/components/ui/label";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import { getInquiryModalCopy } from "./inquiry-modal-copy";
 
 interface InquiryModalProps {
   isOpen: boolean;
   onClose: () => void;
   packageName: string;
   packagePrice: string;
+  priceLabel?: string;
+  description?: string;
+  messageLabel?: string;
+  messagePlaceholder?: string;
   accentColor: string;
 }
 
@@ -21,8 +26,18 @@ export default function InquiryModal({
   onClose,
   packageName,
   packagePrice,
+  priceLabel,
+  description,
+  messageLabel,
+  messagePlaceholder,
   accentColor,
 }: InquiryModalProps) {
+  const modalCopy = getInquiryModalCopy({
+    description,
+    messageLabel,
+    messagePlaceholder,
+  });
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -107,7 +122,7 @@ export default function InquiryModal({
             Interested in {packageName}?
           </DialogTitle>
           <DialogDescription className="text-gray-400">
-            Tell us more about your needs and we'll get back to you shortly.
+            {modalCopy.description}
           </DialogDescription>
         </DialogHeader>
 
@@ -118,7 +133,9 @@ export default function InquiryModal({
               Selected Package
             </p>
             <p className="text-white font-semibold">{packageName}</p>
-            <p className={`text-sm font-bold ${accentColor}`}>{packagePrice}/month</p>
+            <p className={`text-sm font-bold ${accentColor}`}>
+              {priceLabel ?? `${packagePrice}/month`}
+            </p>
           </div>
 
           {/* Name Field */}
@@ -180,14 +197,14 @@ export default function InquiryModal({
           {/* Message Field */}
           <div className="space-y-2">
             <Label htmlFor="message" className="text-white text-sm">
-              Tell us about your needs *
+              {modalCopy.messageLabel}
             </Label>
             <Textarea
               id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
-              placeholder="Describe your marketing goals and any specific requirements..."
+              placeholder={modalCopy.messagePlaceholder}
               className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 min-h-24 resize-none"
               disabled={submitInquiry.isPending}
             />

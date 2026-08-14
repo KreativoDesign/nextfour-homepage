@@ -1,4 +1,6 @@
+import { useState } from "react";
 import {
+  ArrowUpRight,
   CheckCircle2,
   Database,
   Headphones,
@@ -12,6 +14,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import InquiryModal from "@/components/InquiryModal";
 import { trinityFeatureGroups } from "@/lib/trinity";
 import { trinityDetails, trinityScreenshots } from "@/lib/trinity-showcase";
 
@@ -26,6 +29,8 @@ const detailIcons = {
 } as const;
 
 export default function TrinityCrmSection({ color }: TrinityCrmSectionProps) {
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
+
   return (
     <section className="trinity-crm" aria-labelledby="trinity-crm-title">
       <div className="trinity-crm__container">
@@ -92,6 +97,24 @@ export default function TrinityCrmSection({ color }: TrinityCrmSectionProps) {
           ))}
         </div>
 
+        <div className="trinity-crm__demo-cta">
+          <div>
+            <span className="trinity-crm__demo-eyebrow" style={{ color }}>
+              SEE TRINITY IN ACTION
+            </span>
+            <h3>Ready to see how Trinity fits your business?</h3>
+            <p>Request a tailored walkthrough with our CRM team.</p>
+          </div>
+          <button
+            type="button"
+            className="trinity-crm__demo-button"
+            onClick={() => setIsDemoOpen(true)}
+          >
+            <span>Request a Demo</span>
+            <ArrowUpRight size={18} aria-hidden="true" />
+          </button>
+        </div>
+
         <div className="trinity-crm__details" aria-labelledby="trinity-crm-details-title">
           <div className="trinity-crm__details-heading">
             <span className="trinity-crm__eyebrow" style={{ color }}>
@@ -124,6 +147,21 @@ export default function TrinityCrmSection({ color }: TrinityCrmSectionProps) {
                   <AccordionContent>
                     <div className="trinity-crm__accordion-content">
                       <p>{detail.content}</p>
+                      {detail.steps && (
+                        <ol className="trinity-crm__timeline" aria-label="Trinity onboarding steps">
+                          {detail.steps.map((step, index) => (
+                            <li key={step.title} className="trinity-crm__timeline-step">
+                              <span className="trinity-crm__timeline-marker" style={{ borderColor: color, color }}>
+                                {index + 1}
+                              </span>
+                              <span className="trinity-crm__timeline-copy">
+                                <strong>{step.title}</strong>
+                                <span>{step.description}</span>
+                              </span>
+                            </li>
+                          ))}
+                        </ol>
+                      )}
                       <ul>
                         {detail.points.map((point) => (
                           <li key={point}>
@@ -140,6 +178,18 @@ export default function TrinityCrmSection({ color }: TrinityCrmSectionProps) {
           </Accordion>
         </div>
       </div>
+
+      <InquiryModal
+        isOpen={isDemoOpen}
+        onClose={() => setIsDemoOpen(false)}
+        packageName="Trinity CRM Demo"
+        packagePrice="Tailored walkthrough"
+        priceLabel="Personalised demo"
+        description="Tell us about your team and we’ll arrange a tailored Trinity CRM walkthrough."
+        messageLabel="What would you like to see in the demo? *"
+        messagePlaceholder="Share your current sales, customer, or reporting workflow and what you would like Trinity to improve..."
+        accentColor="text-cyan-500"
+      />
     </section>
   );
 }

@@ -1244,3 +1244,147 @@ button:focus-visible, a:focus-visible, [tabindex="0"]:focus-visible {
     transition: none;
   }
 }
+
+/* Trinity onboarding timeline and demo CTA */
+.trinity-crm__demo-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin-top: 30px;
+  padding: 24px 26px;
+  border: 1px solid color-mix(in srgb, var(--nf-cyan) 45%, var(--nf-line));
+  border-radius: 14px;
+  background: linear-gradient(105deg, rgba(0, 200, 255, 0.09), rgba(0, 200, 255, 0.025));
+}
+
+.trinity-crm__demo-eyebrow {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.trinity-crm__demo-cta h3 {
+  margin-top: 8px;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+}
+
+.trinity-crm__demo-cta p {
+  margin-top: 6px;
+  color: var(--nf-muted);
+  font-size: 0.88rem;
+}
+
+.trinity-crm__demo-button {
+  display: inline-flex;
+  min-height: 48px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 18px;
+  border: 1px solid var(--nf-cyan);
+  border-radius: 8px;
+  color: var(--nf-white);
+  background: rgba(0, 200, 255, 0.1);
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.trinity-crm__demo-button:hover,
+.trinity-crm__demo-button:focus-visible {
+  background: rgba(0, 200, 255, 0.2);
+  box-shadow: 0 0 24px rgba(0, 200, 255, 0.2);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.trinity-crm__demo-button:focus-visible {
+  box-shadow: 0 0 0 3px rgba(0, 200, 255, 0.25), 0 0 24px rgba(0, 200, 255, 0.2);
+}
+
+.trinity-crm__timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 22px 0 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.trinity-crm__timeline::before {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 15px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--nf-cyan), var(--nf-line));
+  content: "";
+}
+
+.trinity-crm__timeline-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  min-height: 64px;
+}
+
+.trinity-crm__timeline-marker {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  border-radius: 50%;
+  background: #050505;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.trinity-crm__timeline-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-top: 3px;
+}
+
+.trinity-crm__timeline-copy strong {
+  font-size: 0.9rem;
+}
+
+.trinity-crm__timeline-copy span {
+  color: var(--nf-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .trinity-crm__demo-cta {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 24px;
+    padding: 20px;
+  }
+
+  .trinity-crm__demo-button {
+    width: 100%;
+    min-height: 52px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trinity-crm__demo-button {
+    transition: none;
+  }
+}

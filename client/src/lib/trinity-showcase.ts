@@ -11,6 +11,10 @@ export interface TrinityDetail {
   title: string;
   content: string;
   points: string[];
+  steps?: Array<{
+    title: string;
+    description: string;
+  }>;
 }
 
 export const trinityScreenshots: TrinityScreenshot[] = [
@@ -54,6 +58,24 @@ export const trinityDetails: TrinityDetail[] = [
       "Workflow and data-mapping discovery",
       "Workspace configuration and role setup",
       "Guided team handover and adoption support",
+    ],
+    steps: [
+      {
+        title: "Discover",
+        description: "Map your customer records, sales stages, contacts, and reporting priorities.",
+      },
+      {
+        title: "Configure",
+        description: "Shape the workspace, roles, fields, and workflows around how your team operates.",
+      },
+      {
+        title: "Launch",
+        description: "Guide your team through Trinity with practical handover and adoption support.",
+      },
+      {
+        title: "Optimise",
+        description: "Review usage, reporting, and refinements as your business grows.",
+      },
     ],
   },
   {
