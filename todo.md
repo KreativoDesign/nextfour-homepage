@@ -38,3 +38,7 @@
 - [x] Replace the Responsive Design showcase image with a natural, design-focused visual.
 - [x] Tune each showcase image to display as a correctly framed close-up on desktop and mobile.
 - [x] Validate the Web Design Excellence section and synchronize the visual update to GitHub.
+- [x] Replace the SEO showcase background with a visual that clearly communicates search discovery and SEO.
+- [x] Increase the Responsive Design showcase image zoom while keeping the composition readable.
+- [x] Validate both corrections responsively and synchronize the update to GitHub.
+- [x] Commit and push the corrected SEO image and Responsive Design zoom update to GitHub main, then verify the remote commit.

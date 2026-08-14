@@ -10,13 +10,17 @@ export default function WebDesignShowcase({ color }: WebDesignShowcaseProps) {
       image: "/manus-storage/web-design-uiux-natural_0ffbc6ee.png",
       imageAlt: "Close-up of hands arranging paper wireframes and typography samples on a design desk",
       objectPosition: "center 54%",
+      imageScale: "scale-[1.16]",
+      hoverImageScale: "group-hover:scale-[1.23]",
     },
     {
       title: "SEO",
       description: "We optimize every page for discoverability, stronger rankings, and sustainable organic growth.",
-      image: "/manus-storage/web-design-seo-natural_bc7102e6.png",
-      imageAlt: "Close-up editorial view of a person discovering an independent storefront on a calm street",
-      objectPosition: "center 48%",
+      image: "/manus-storage/web-design-seo-discovery-natural_cf5fd3f4.png",
+      imageAlt: "Close-up of hands studying a local business directory, map route, and search content plan",
+      objectPosition: "center 50%",
+      imageScale: "scale-[1.16]",
+      hoverImageScale: "group-hover:scale-[1.23]",
     },
     {
       title: "Responsive Design",
@@ -24,6 +28,8 @@ export default function WebDesignShowcase({ color }: WebDesignShowcaseProps) {
       image: "/manus-storage/web-design-responsive-natural_89c517a5.png",
       imageAlt: "Close-up of three paper compositions arranged in mobile, tablet, and desktop proportions",
       objectPosition: "center 50%",
+      imageScale: "scale-[1.38]",
+      hoverImageScale: "group-hover:scale-[1.48]",
     },
   ];
 
@@ -48,7 +54,7 @@ export default function WebDesignShowcase({ color }: WebDesignShowcaseProps) {
                   src={item.image}
                   alt={item.imageAlt}
                   style={{ objectPosition: item.objectPosition }}
-                  className="w-full h-full object-cover scale-[1.16] group-hover:scale-[1.23] transition-transform duration-700"
+                  className={`w-full h-full object-cover ${item.imageScale} ${item.hoverImageScale} transition-transform duration-700`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
               </div>
