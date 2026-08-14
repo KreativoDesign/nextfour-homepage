@@ -91,3 +91,8 @@
 - [x] Validate the updated CRM service page responsively and synchronize the update to GitHub.
 - [x] Resolve the residual conflict marker in server/routers.ts and confirm the dev server has no transform errors.
 - [x] Revalidate the CRM service page after the server fix, then commit and push the Trinity CRM update to GitHub main.
+- [x] Prepare and upload the four Trinity dashboard and product screenshots for managed project storage.
+- [x] Add a responsive Trinity screenshot gallery beneath the existing feature cards.
+- [x] Add an interactive accordion covering Trinity onboarding, integrations, and support details.
+- [ ] Validate the gallery and accordion on desktop and mobile, then synchronize the update to GitHub.
+- [ ] Commit and push the Trinity screenshot gallery and details accordion to GitHub main, then verify the remote commit.
