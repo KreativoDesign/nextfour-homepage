@@ -886,3 +886,59 @@ button:focus-visible, a:focus-visible, [tabindex="0"]:focus-visible {
   .key-benefit-icon:hover,
   .key-benefit-icon:focus-visible { transform: none; }
 }
+
+/* Mobile touch target and rendering performance optimizations */
+@media (max-width: 768px) {
+  button, a, input, textarea, select {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  .menu-trigger {
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+  .carousel-arrow {
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+  .portfolio-carousel__button {
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+  .carousel-dot, .portfolio-carousel__dot {
+    padding: 10px !important;
+    margin: -4px;
+    background-clip: content-box !important;
+  }
+  .mobile-menu__link {
+    min-height: 48px;
+    padding: 12px 0;
+  }
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+@media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .mobile-menu, .service-card, .portfolio-carousel__slide {
+    will-change: transform;
+  }
+}
+
+/* Optimize mobile rendering performance by reducing heavy backdrop blur and ambient glows */
+@media (max-width: 768px) {
+  .site-header.is-scrolled {
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+  .mobile-menu__surface {
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+  }
+  .service-card, .portfolio-carousel__slide {
+    box-shadow: none !important;
+  }
+  .service-detail-cta__ambient, .service-detail-hero__ambient {
+    opacity: 0.4;
+    filter: blur(60px) !important;
+  }
+}
