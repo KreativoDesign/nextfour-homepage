@@ -107,3 +107,6 @@
 - [x] Add a responsive CRM systems logo showcase beneath the CRM service introduction.
 - [x] Validate the CRM logo showcase on desktop and mobile and update tests.
 - [x] Synchronize the CRM logo showcase update to GitHub main and verify the remote commit.
+- [x] Remove the CRM service overview blocks for Our Approach, What We Deliver, and Why Choose NextFour.
+- [x] Validate the shortened CRM page on desktop and mobile and run the existing tests.
+- [ ] Synchronize the CRM overview removal to GitHub main and verify the remote commit.
