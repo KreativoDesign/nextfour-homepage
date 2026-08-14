@@ -3,6 +3,7 @@ import ServiceDetailHero from "@/components/ServiceDetailHero";
 import ServiceDetailContent from "@/components/ServiceDetailContent";
 import ServiceDetailCTA from "@/components/ServiceDetailCTA";
 import TrinityCrmSection from "@/components/TrinityCrmSection";
+import CrmPlatformLogos from "@/components/CrmPlatformLogos";
 
 export default function ServiceCRM() {
   const service = {
@@ -59,6 +60,8 @@ export default function ServiceCRM() {
           },
         ]}
       />
+
+      <CrmPlatformLogos />
 
       <TrinityCrmSection color={service.color} />
 

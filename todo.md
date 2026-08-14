@@ -103,3 +103,7 @@
 - [x] Add context-specific description, message label, and placeholder support to InquiryModal for CRM demo requests.
 - [x] Revalidate the Trinity Request a Demo flow after the CRM-specific copy update.
 - [x] Add focused Vitest coverage for InquiryModal copy resolution.
+- [x] Source official Salesforce, HubSpot, and Pipedrive logo assets for the CRM service page.
+- [x] Add a responsive CRM systems logo showcase beneath the CRM service introduction.
+- [x] Validate the CRM logo showcase on desktop and mobile and update tests.
+- [ ] Synchronize the CRM logo showcase update to GitHub main and verify the remote commit.
