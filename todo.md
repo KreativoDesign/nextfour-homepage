@@ -33,3 +33,8 @@
 - [x] Make the homepage portfolio card rail loop continuously during wheel and pointer interactions.
 - [x] Make each homepage portfolio card clickable to its matching service detail page.
 - [x] Validate the homepage carousel interactions responsively and synchronize the update to GitHub.
+- [x] Replace the UI/UX Design showcase image with a natural, design-focused visual.
+- [x] Replace the SEO showcase image with a natural, design-focused visual.
+- [x] Replace the Responsive Design showcase image with a natural, design-focused visual.
+- [x] Tune each showcase image to display as a correctly framed close-up on desktop and mobile.
+- [x] Validate the Web Design Excellence section and synchronize the visual update to GitHub.
