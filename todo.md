@@ -60,3 +60,9 @@
 - [x] Validate the What’s Included modal on desktop and mobile, including open, inclusion display, and close behavior.
 - [x] Commit and push the pricing modal update to GitHub main, then verify the remote commit.
 - [x] Validate the What’s Included modal interaction on a mobile viewport, including open, correct tier-specific inclusion content, and close behavior.
+- [x] Replace the Foundation modal inclusions with only the Foundation services and quantities from the uploaded package reference.
+- [x] Replace the Momentum modal inclusions with only the Momentum services and quantities from the uploaded package reference.
+- [x] Replace the Accelerate modal inclusions with only the Accelerate services and quantities from the uploaded package reference.
+- [x] Replace the Growth Partner modal inclusions with only the Growth Partner services and quantities from the uploaded package reference.
+- [x] Validate all tier modals responsively and synchronize the detailed inclusion update to GitHub.
+- [x] Commit and push the detailed pricing inclusion matrix to GitHub main, then verify the remote commit.

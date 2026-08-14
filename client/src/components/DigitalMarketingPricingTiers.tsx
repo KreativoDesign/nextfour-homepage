@@ -1,9 +1,25 @@
 import { useState } from "react";
 import { Check, Target, TrendingUp, BarChart3, Handshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { getPricingLabel, shouldShowSetupFee } from "@/lib/pricing";
 import InquiryModal from "./InquiryModal";
+
+interface InclusionItem {
+  label: string;
+  value: string;
+}
+
+interface InclusionSection {
+  category: string;
+  items: InclusionItem[];
+}
 
 interface PricingTier {
   name: string;
@@ -13,6 +29,7 @@ interface PricingTier {
   priceLabel?: string;
   cta: string;
   features: string[];
+  includedSections: InclusionSection[];
   icon: React.ReactNode;
   borderColor: string;
   accentColor: string;
@@ -26,8 +43,13 @@ interface DigitalMarketingPricingTiersProps {
 export default function DigitalMarketingPricingTiers({
   color,
 }: DigitalMarketingPricingTiersProps) {
-  const [selectedTier, setSelectedTier] = useState<{ name: string; price: string; accentColor: string } | null>(null);
+  const [selectedTier, setSelectedTier] = useState<{
+    name: string;
+    price: string;
+    accentColor: string;
+  } | null>(null);
   const [selectedIncludedTier, setSelectedIncludedTier] = useState<PricingTier | null>(null);
+
   const pricingTiers: PricingTier[] = [
     {
       name: "FOUNDATION",
@@ -39,6 +61,56 @@ export default function DigitalMarketingPricingTiers({
         "Establish your brand online",
         "Engage your audience with quality content",
         "Lay the foundation for growth",
+      ],
+      includedSections: [
+        {
+          category: "Strategy",
+          items: [
+            { label: "Marketing Strategy & Plan", value: "Included" },
+            { label: "Monthly Strategy Call", value: "30 min" },
+          ],
+        },
+        {
+          category: "Social Media",
+          items: [
+            { label: "Social Media Management", value: "Included" },
+            { label: "Monthly Social Posts", value: "8" },
+            { label: "Reels / Short Videos", value: "2" },
+            { label: "Stories (Monthly)", value: "8" },
+            { label: "Community Management", value: "Included" },
+            { label: "Graphic Design", value: "Included" },
+          ],
+        },
+        {
+          category: "Advertising",
+          items: [
+            { label: "Meta Ads Management", value: "Optional" },
+            { label: "Recommended Meta Ad Spend", value: "R1,000 – R2,500" },
+          ],
+        },
+        {
+          category: "Website & SEO",
+          items: [
+            { label: "SEO (Search Engine Optimisation)", value: "Basic" },
+            { label: "Website Maintenance", value: "Optional" },
+            { label: "Landing Pages", value: "1 / quarter" },
+          ],
+        },
+        {
+          category: "Content & CRM",
+          items: [{ label: "Blog Content", value: "1 / quarter" }],
+        },
+        {
+          category: "Reporting & Growth",
+          items: [
+            { label: "Monthly Reporting", value: "Included" },
+            { label: "Analytics Dashboard / KPI Dashboard", value: "Basic" },
+          ],
+        },
+        {
+          category: "Support",
+          items: [{ label: "Support Level", value: "Standard" }],
+        },
       ],
       icon: <Target className="w-12 h-12" />,
       borderColor: "border-lime-500",
@@ -57,6 +129,67 @@ export default function DigitalMarketingPricingTiers({
         "Data-driven campaigns",
         "Stronger customer engagement",
       ],
+      includedSections: [
+        {
+          category: "Strategy",
+          items: [
+            { label: "Marketing Strategy & Plan", value: "Included" },
+            { label: "Monthly Strategy Call", value: "60 min" },
+          ],
+        },
+        {
+          category: "Social Media",
+          items: [
+            { label: "Social Media Management", value: "Included" },
+            { label: "Monthly Social Posts", value: "12" },
+            { label: "Reels / Short Videos", value: "4" },
+            { label: "Stories (Monthly)", value: "12" },
+            { label: "Community Management", value: "Included" },
+            { label: "Graphic Design", value: "Included" },
+          ],
+        },
+        {
+          category: "Advertising",
+          items: [
+            { label: "Meta Ads Management", value: "Included" },
+            { label: "Recommended Meta Ad Spend", value: "R2,500 – R5,000" },
+            { label: "Google Ads Management", value: "Optional" },
+            { label: "Recommended Google Ad Spend", value: "R1,000 – R2,500" },
+          ],
+        },
+        {
+          category: "Website & SEO",
+          items: [
+            { label: "SEO (Search Engine Optimisation)", value: "Local SEO" },
+            { label: "Website Maintenance", value: "Included" },
+            { label: "Landing Pages", value: "1 / month" },
+          ],
+        },
+        {
+          category: "Content & CRM",
+          items: [
+            { label: "Blog Content", value: "2 / month" },
+            { label: "Email Marketing", value: "Included" },
+            { label: "CRM Integration", value: "Optional" },
+          ],
+        },
+        {
+          category: "Automation & AI",
+          items: [{ label: "AI-Assisted Marketing", value: "Basic" }],
+        },
+        {
+          category: "Reporting & Growth",
+          items: [
+            { label: "Monthly Reporting", value: "Included" },
+            { label: "Analytics Dashboard / KPI Dashboard", value: "Advanced" },
+            { label: "Quarterly Business Review", value: "Included" },
+          ],
+        },
+        {
+          category: "Support",
+          items: [{ label: "Support Level", value: "Priority" }],
+        },
+      ],
       icon: <TrendingUp className="w-12 h-12" />,
       borderColor: "border-cyan-500",
       accentColor: "text-cyan-500",
@@ -74,6 +207,73 @@ export default function DigitalMarketingPricingTiers({
         "Conversion optimisation",
         "Strategic growth partner",
       ],
+      includedSections: [
+        {
+          category: "Strategy",
+          items: [
+            { label: "Marketing Strategy & Plan", value: "Included" },
+            { label: "Monthly Strategy Call", value: "60 min" },
+          ],
+        },
+        {
+          category: "Social Media",
+          items: [
+            { label: "Social Media Management", value: "Included" },
+            { label: "Monthly Social Posts", value: "16" },
+            { label: "Reels / Short Videos", value: "6" },
+            { label: "Stories (Monthly)", value: "16" },
+            { label: "Community Management", value: "Included" },
+            { label: "Graphic Design", value: "Included" },
+          ],
+        },
+        {
+          category: "Advertising",
+          items: [
+            { label: "Meta Ads Management", value: "Included" },
+            { label: "Recommended Meta Ad Spend", value: "R5,000 – R10,000+" },
+            { label: "Google Ads Management", value: "Included" },
+            { label: "Recommended Google Ad Spend", value: "R3,000 – R7,500+" },
+          ],
+        },
+        {
+          category: "Website & SEO",
+          items: [
+            { label: "SEO (Search Engine Optimisation)", value: "Advanced" },
+            { label: "Website Maintenance", value: "Included" },
+            { label: "Landing Pages", value: "2 / month" },
+          ],
+        },
+        {
+          category: "Content & CRM",
+          items: [
+            { label: "Blog Content", value: "4 / month" },
+            { label: "Email Marketing", value: "Included" },
+            { label: "CRM Integration", value: "Optional" },
+          ],
+        },
+        {
+          category: "Automation & AI",
+          items: [
+            { label: "Marketing Automation", value: "Optional" },
+            { label: "AI-Assisted Marketing", value: "Included" },
+          ],
+        },
+        {
+          category: "Reporting & Growth",
+          items: [
+            { label: "Monthly Reporting", value: "Included" },
+            { label: "Analytics Dashboard / KPI Dashboard", value: "Advanced + KPI" },
+            { label: "Quarterly Business Review", value: "Included" },
+          ],
+        },
+        {
+          category: "Support",
+          items: [
+            { label: "Dedicated Account Manager", value: "Included" },
+            { label: "Support Level", value: "Priority Plus" },
+          ],
+        },
+      ],
       icon: <BarChart3 className="w-12 h-12" />,
       borderColor: "border-lime-400",
       accentColor: "text-lime-400",
@@ -90,6 +290,73 @@ export default function DigitalMarketingPricingTiers({
         "Custom strategy & execution",
         "Multi-channel integrated campaigns",
         "Executive reporting & support",
+      ],
+      includedSections: [
+        {
+          category: "Strategy",
+          items: [
+            { label: "Marketing Strategy & Plan", value: "Included" },
+            { label: "Monthly Strategy Call", value: "90 min" },
+          ],
+        },
+        {
+          category: "Social Media",
+          items: [
+            { label: "Social Media Management", value: "Included" },
+            { label: "Monthly Social Posts", value: "20+" },
+            { label: "Reels / Short Videos", value: "8+" },
+            { label: "Stories (Monthly)", value: "20+" },
+            { label: "Community Management", value: "Included" },
+            { label: "Graphic Design", value: "Included" },
+          ],
+        },
+        {
+          category: "Advertising",
+          items: [
+            { label: "Meta Ads Management", value: "Included" },
+            { label: "Recommended Meta Ad Spend", value: "R10,000+" },
+            { label: "Google Ads Management", value: "Included" },
+            { label: "Recommended Google Ad Spend", value: "R7,500+" },
+          ],
+        },
+        {
+          category: "Website & SEO",
+          items: [
+            { label: "SEO (Search Engine Optimisation)", value: "Enterprise" },
+            { label: "Website Maintenance", value: "Included" },
+            { label: "Landing Pages", value: "4+ / month" },
+          ],
+        },
+        {
+          category: "Content & CRM",
+          items: [
+            { label: "Blog Content", value: "8+ / month" },
+            { label: "Email Marketing", value: "Included" },
+            { label: "CRM Integration", value: "Included" },
+          ],
+        },
+        {
+          category: "Automation & AI",
+          items: [
+            { label: "Marketing Automation", value: "Included" },
+            { label: "AI-Assisted Marketing", value: "Included" },
+          ],
+        },
+        {
+          category: "Reporting & Growth",
+          items: [
+            { label: "Monthly Reporting", value: "Included" },
+            { label: "Analytics Dashboard / KPI Dashboard", value: "Executive Dashboard" },
+            { label: "Quarterly Business Review", value: "Included" },
+          ],
+        },
+        {
+          category: "Support",
+          items: [
+            { label: "Dedicated Account Manager", value: "Included" },
+            { label: "Support Level", value: "Premium" },
+          ],
+        },
       ],
       icon: <Handshake className="w-12 h-12" />,
       borderColor: "border-purple-500",
@@ -230,7 +497,7 @@ export default function DigitalMarketingPricingTiers({
 
       {selectedIncludedTier && (
         <Dialog open={!!selectedIncludedTier} onOpenChange={() => setSelectedIncludedTier(null)}>
-          <DialogContent className="sm:max-w-lg bg-black/95 border border-white/10 text-white">
+          <DialogContent className="max-h-[85vh] overflow-y-auto bg-black/95 border border-white/10 text-white sm:max-w-2xl">
             <DialogHeader>
               <DialogTitle className={selectedIncludedTier.accentColor}>
                 What’s Included in {selectedIncludedTier.name}
@@ -240,12 +507,29 @@ export default function DigitalMarketingPricingTiers({
               </DialogDescription>
             </DialogHeader>
 
-            <div className="space-y-4 pt-2">
-              {selectedIncludedTier.features.map((feature) => (
-                <div key={feature} className="flex items-start gap-3 rounded-lg border border-white/10 bg-white/5 p-3">
-                  <Check className={`mt-0.5 h-5 w-5 flex-shrink-0 ${selectedIncludedTier.accentColor}`} />
-                  <span className="text-sm leading-relaxed text-gray-200">{feature}</span>
-                </div>
+            <div className="space-y-5 pt-2">
+              {selectedIncludedTier.includedSections.map((section) => (
+                <section key={section.category}>
+                  <h4 className={`mb-2 text-xs font-bold uppercase tracking-[0.18em] ${selectedIncludedTier.accentColor}`}>
+                    {section.category}
+                  </h4>
+                  <div className="overflow-hidden rounded-lg border border-white/10">
+                    {section.items.map((item) => (
+                      <div
+                        key={`${section.category}-${item.label}`}
+                        className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 border-b border-white/10 bg-white/5 px-3 py-2.5 last:border-b-0"
+                      >
+                        <div className="flex items-start gap-2 text-sm leading-relaxed text-gray-200">
+                          <Check className={`mt-0.5 h-4 w-4 flex-shrink-0 ${selectedIncludedTier.accentColor}`} />
+                          <span>{item.label}</span>
+                        </div>
+                        <span className={`text-right text-sm font-semibold ${selectedIncludedTier.accentColor}`}>
+                          {item.value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </section>
               ))}
             </div>
           </DialogContent>
