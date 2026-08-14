@@ -42,3 +42,9 @@
 - [x] Increase the Responsive Design showcase image zoom while keeping the composition readable.
 - [x] Validate both corrections responsively and synchronize the update to GitHub.
 - [x] Commit and push the corrected SEO image and Responsive Design zoom update to GitHub main, then verify the remote commit.
+- [x] Replace the Campaign Analytics background with a realistic, zoomed-in editorial visual.
+- [x] Replace the Social Media Excellence background with a realistic, zoomed-in editorial visual.
+- [x] Replace the Team Collaboration background with a realistic, zoomed-in editorial visual.
+- [x] Validate the Digital Marketing showcase responsively and synchronize the update to GitHub.
+- [x] Validate the updated Digital Marketing showcase on mobile.
+- [x] Commit and push the Digital Marketing showcase image update to GitHub main, then verify the remote commit.
