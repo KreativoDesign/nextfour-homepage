@@ -66,3 +66,7 @@
 - [x] Replace the Growth Partner modal inclusions with only the Growth Partner services and quantities from the uploaded package reference.
 - [x] Validate all tier modals responsively and synchronize the detailed inclusion update to GitHub.
 - [x] Commit and push the detailed pricing inclusion matrix to GitHub main, then verify the remote commit.
+- [x] Reduce the gap between the key-benefit icon row and the Digital Marketing pricing cards.
+- [x] Validate the tightened spacing on desktop and mobile, then synchronize the update to GitHub.
+- [x] Validate the tightened pricing section spacing on a mobile viewport.
+- [x] Commit and push the spacing update to GitHub main, then verify the remote commit.

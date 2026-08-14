@@ -382,7 +382,7 @@ export default function DigitalMarketingPricingTiers({
         </div>
 
         {/* Key Benefits */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 pb-8 border-b border-white/10">
           <div className="text-center">
             <div className="mb-3 flex justify-center">
               <Target className="w-8 h-8 text-lime-500" />
