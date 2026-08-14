@@ -98,8 +98,8 @@
 - [x] Commit and push the Trinity screenshot gallery and details accordion to GitHub main, then verify the remote commit.
 - [x] Add a visual onboarding timeline/checklist to the Trinity CRM onboarding accordion content.
 - [x] Add a Request a Demo CTA below the Trinity screenshot gallery using the existing inquiry flow.
-- [ ] Validate the timeline, CTA interaction, and responsive layout, then synchronize the update to GitHub.
-- [ ] Commit and push the Trinity onboarding timeline and Request a Demo CTA update to GitHub main, then verify the remote commit.
+- [x] Validate the timeline, CTA interaction, and responsive layout, then synchronize the update to GitHub.
+- [x] Commit and push the Trinity onboarding timeline and Request a Demo CTA update to GitHub main, then verify the remote commit.
 - [x] Add context-specific description, message label, and placeholder support to InquiryModal for CRM demo requests.
 - [x] Revalidate the Trinity Request a Demo flow after the CRM-specific copy update.
 - [x] Add focused Vitest coverage for InquiryModal copy resolution.
