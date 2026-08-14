@@ -381,32 +381,51 @@ export default function DigitalMarketingPricingTiers({
           </p>
         </div>
 
+        {/* Mobile package navigation */}
+        <nav
+          aria-label="Package section navigation"
+          className="sticky top-16 z-20 mb-6 grid grid-cols-2 gap-2 rounded-full border border-white/10 bg-black/85 p-1 backdrop-blur-xl md:hidden"
+        >
+          <a
+            href="#package-features"
+            className="rounded-full px-3 py-2 text-center text-xs font-semibold uppercase tracking-[0.12em] text-gray-300 transition-colors hover:bg-white/10 hover:text-white"
+          >
+            Features
+          </a>
+          <a
+            href="#package-pricing"
+            className="rounded-full px-3 py-2 text-center text-xs font-semibold uppercase tracking-[0.12em] text-lime-400 transition-colors hover:bg-lime-400/10 hover:text-lime-300"
+          >
+            Pricing
+          </a>
+        </nav>
+
         {/* Key Benefits */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 pb-8 border-b border-white/10">
+        <div id="package-features" className="scroll-mt-24 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 pb-8 border-b border-white/10">
           <div className="text-center">
             <div className="mb-3 flex justify-center">
-              <Target className="w-8 h-8 text-lime-500" />
+              <Target tabIndex={0} aria-label="Strategy: built for growth" className="key-benefit-icon w-8 h-8 text-lime-500" />
             </div>
             <h3 className="text-lime-500 font-bold mb-2">STRATEGY</h3>
             <p className="text-gray-400 text-sm">built for growth</p>
           </div>
           <div className="text-center">
             <div className="mb-3 flex justify-center">
-              <TrendingUp className="w-8 h-8 text-cyan-500" />
+              <TrendingUp tabIndex={0} aria-label="Data-driven decision making" className="key-benefit-icon w-8 h-8 text-cyan-500" />
             </div>
             <h3 className="text-cyan-500 font-bold mb-2">DATA-DRIVEN</h3>
             <p className="text-gray-400 text-sm">decision making</p>
           </div>
           <div className="text-center">
             <div className="mb-3 flex justify-center">
-              <BarChart3 className="w-8 h-8 text-lime-500" />
+              <BarChart3 tabIndex={0} aria-label="Measurable real results" className="key-benefit-icon w-8 h-8 text-lime-500" />
             </div>
             <h3 className="text-lime-500 font-bold mb-2">MEASURABLE</h3>
             <p className="text-gray-400 text-sm">real results</p>
           </div>
           <div className="text-center">
             <div className="mb-3 flex justify-center">
-              <Handshake className="w-8 h-8 text-purple-500" />
+              <Handshake tabIndex={0} aria-label="Partnership and long-term success" className="key-benefit-icon w-8 h-8 text-purple-500" />
             </div>
             <h3 className="text-purple-500 font-bold mb-2">PARTNERSHIP</h3>
             <p className="text-gray-400 text-sm">long-term success</p>
@@ -414,7 +433,7 @@ export default function DigitalMarketingPricingTiers({
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div id="package-pricing" className="scroll-mt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {pricingTiers.map((tier, index) => (
             <div
               key={index}

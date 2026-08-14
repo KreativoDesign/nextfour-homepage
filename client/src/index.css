@@ -865,3 +865,24 @@ button:focus-visible, a:focus-visible, [tabindex="0"]:focus-visible {
     border-radius: 12px;
   }
 }
+
+/* Digital Marketing package benefit interaction */
+.key-benefit-icon {
+  filter: drop-shadow(0 0 0 transparent);
+  transition: transform 180ms var(--nf-ease-out), filter 180ms var(--nf-ease-out);
+}
+.key-benefit-icon:hover,
+.key-benefit-icon:focus-visible {
+  transform: translateY(-2px) scale(1.08);
+  filter: drop-shadow(0 0 8px currentColor);
+}
+.key-benefit-icon:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+  border-radius: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .key-benefit-icon { transition: none; }
+  .key-benefit-icon:hover,
+  .key-benefit-icon:focus-visible { transform: none; }
+}
