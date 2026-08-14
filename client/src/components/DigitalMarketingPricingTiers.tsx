@@ -7,7 +7,8 @@ interface PricingTier {
   name: string;
   description: string;
   price: string;
-  setupFee: string;
+  setupFee?: string;
+  priceLabel?: string;
   cta: string;
   features: string[];
   icon: React.ReactNode;
@@ -76,10 +77,10 @@ export default function DigitalMarketingPricingTiers({
       ctaColor: "bg-lime-400 hover:bg-lime-500 text-black",
     },
     {
-      name: "ENTERPRISE GROWTH PARTNER",
+      name: "GROWTH PARTNER",
       description: "Your outsourced marketing department.",
       price: "CUSTOM / CONTACT US",
-      setupFee: "R7,500",
+      priceLabel: "CUSTOMIZE",
       cta: "LET'S SCALE TOGETHER",
       features: [
         "Full-service marketing department",
@@ -165,13 +166,15 @@ export default function DigitalMarketingPricingTiers({
 
               {/* Pricing */}
               <div className="mb-6">
-                <p className="text-gray-400 text-xs uppercase mb-1">FROM</p>
+                <p className="text-gray-400 text-xs uppercase mb-1">{tier.priceLabel ?? "FROM"}</p>
                 <p className={`text-3xl font-bold ${tier.accentColor} mb-2`}>
                   {tier.price}
                 </p>
-                <p className="text-gray-500 text-xs">
-                  + Once-off setup fee from {tier.setupFee}
-                </p>
+                {tier.setupFee && (
+                  <p className="text-gray-500 text-xs">
+                    + Once-off setup fee from {tier.setupFee}
+                  </p>
+                )}
               </div>
 
               {/* Features */}

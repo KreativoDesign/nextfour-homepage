@@ -48,3 +48,8 @@
 - [x] Validate the Digital Marketing showcase responsively and synchronize the update to GitHub.
 - [x] Validate the updated Digital Marketing showcase on mobile.
 - [x] Commit and push the Digital Marketing showcase image update to GitHub main, then verify the remote commit.
+- [x] Rename the Enterprise Growth Partner pricing tier to Growth Partner.
+- [x] Change the Growth Partner price label from From to Customize.
+- [x] Remove the once-off setup fee text from the Growth Partner tier.
+- [x] Validate the revised pricing section responsively and synchronize the update to GitHub.
+- [x] Commit and push the Growth Partner pricing copy update to GitHub main, then verify the remote commit.
