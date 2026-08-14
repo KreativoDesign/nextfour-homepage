@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Check, Target, TrendingUp, BarChart3, Handshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { getPricingLabel, shouldShowSetupFee } from "@/lib/pricing";
 import InquiryModal from "./InquiryModal";
 
 interface PricingTier {
@@ -25,6 +27,7 @@ export default function DigitalMarketingPricingTiers({
   color,
 }: DigitalMarketingPricingTiersProps) {
   const [selectedTier, setSelectedTier] = useState<{ name: string; price: string; accentColor: string } | null>(null);
+  const [selectedIncludedTier, setSelectedIncludedTier] = useState<PricingTier | null>(null);
   const pricingTiers: PricingTier[] = [
     {
       name: "FOUNDATION",
@@ -166,11 +169,11 @@ export default function DigitalMarketingPricingTiers({
 
               {/* Pricing */}
               <div className="mb-6">
-                <p className="text-gray-400 text-xs uppercase mb-1">{tier.priceLabel ?? "FROM"}</p>
+                <p className="text-gray-400 text-xs uppercase mb-1">{getPricingLabel(tier.priceLabel)}</p>
                 <p className={`text-3xl font-bold ${tier.accentColor} mb-2`}>
                   {tier.price}
                 </p>
-                {tier.setupFee && (
+                {shouldShowSetupFee(tier.setupFee) && (
                   <p className="text-gray-500 text-xs">
                     + Once-off setup fee from {tier.setupFee}
                   </p>
@@ -186,6 +189,16 @@ export default function DigitalMarketingPricingTiers({
                   </div>
                 ))}
               </div>
+
+              {/* Included Details */}
+              <Button
+                type="button"
+                variant="link"
+                onClick={() => setSelectedIncludedTier(tier)}
+                className={`self-start mb-6 h-auto p-0 text-sm font-semibold underline-offset-4 hover:underline ${tier.accentColor}`}
+              >
+                What’s Included
+              </Button>
 
               {/* CTA Button */}
               <Button
@@ -213,6 +226,30 @@ export default function DigitalMarketingPricingTiers({
           packagePrice={selectedTier.price}
           accentColor={selectedTier.accentColor}
         />
+      )}
+
+      {selectedIncludedTier && (
+        <Dialog open={!!selectedIncludedTier} onOpenChange={() => setSelectedIncludedTier(null)}>
+          <DialogContent className="sm:max-w-lg bg-black/95 border border-white/10 text-white">
+            <DialogHeader>
+              <DialogTitle className={selectedIncludedTier.accentColor}>
+                What’s Included in {selectedIncludedTier.name}
+              </DialogTitle>
+              <DialogDescription className="text-gray-400">
+                {selectedIncludedTier.description}
+              </DialogDescription>
+            </DialogHeader>
+
+            <div className="space-y-4 pt-2">
+              {selectedIncludedTier.features.map((feature) => (
+                <div key={feature} className="flex items-start gap-3 rounded-lg border border-white/10 bg-white/5 p-3">
+                  <Check className={`mt-0.5 h-5 w-5 flex-shrink-0 ${selectedIncludedTier.accentColor}`} />
+                  <span className="text-sm leading-relaxed text-gray-200">{feature}</span>
+                </div>
+              ))}
+            </div>
+          </DialogContent>
+        </Dialog>
       )}
     </section>
   );

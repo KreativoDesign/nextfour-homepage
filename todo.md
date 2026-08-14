@@ -53,3 +53,10 @@
 - [x] Remove the once-off setup fee text from the Growth Partner tier.
 - [x] Validate the revised pricing section responsively and synchronize the update to GitHub.
 - [x] Commit and push the Growth Partner pricing copy update to GitHub main, then verify the remote commit.
+- [x] Add a What’s Included button beneath each Digital Marketing pricing tier feature list.
+- [x] Open a tier-specific modal with the complete inclusions when the button is clicked.
+- [x] Preserve the existing pricing inquiry CTA behavior and validate the modal responsively.
+- [x] Synchronize the pricing modal update to GitHub.
+- [x] Validate the What’s Included modal on desktop and mobile, including open, inclusion display, and close behavior.
+- [x] Commit and push the pricing modal update to GitHub main, then verify the remote commit.
+- [x] Validate the What’s Included modal interaction on a mobile viewport, including open, correct tier-specific inclusion content, and close behavior.
