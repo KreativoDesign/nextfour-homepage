@@ -88,6 +88,6 @@
 - [x] Commit and push the mobile optimization update to GitHub main and verify the remote commit SHA.
 - [x] Extract Trinity CRM content from shiftbridge.co.za/trinity.
 - [x] Add Trinity CRM product section matching the other service detail layouts in ServiceCRM.tsx.
-- [ ] Validate the updated CRM service page responsively and synchronize the update to GitHub.
+- [x] Validate the updated CRM service page responsively and synchronize the update to GitHub.
 - [x] Resolve the residual conflict marker in server/routers.ts and confirm the dev server has no transform errors.
-- [ ] Revalidate the CRM service page after the server fix, then commit and push the Trinity CRM update to GitHub main.
+- [x] Revalidate the CRM service page after the server fix, then commit and push the Trinity CRM update to GitHub main.
