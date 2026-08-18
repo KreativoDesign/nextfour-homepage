@@ -130,3 +130,7 @@
 - [x] Validate every service detail route on desktop and mobile, including interactions, accessibility, performance, tests, and TypeScript.
 - [x] Record a focused desktop and mobile performance check for the Web Design, Digital Marketing, and CRM service pages.
 - [x] Synchronize all service detail refinements to GitHub main and verify the remote commit.
+- [x] Inspect the current project commands, routes, and implemented capabilities for README accuracy.
+- [x] Add a root README with a NextFour project overview, architecture, service-page guide, setup commands, testing, and contribution notes.
+- [x] Validate README commands and statements against the project implementation.
+- [ ] Synchronize the README update to GitHub main and verify the remote commit.
