@@ -75,21 +75,34 @@ export default function TrinityCrmSection({ color }: TrinityCrmSectionProps) {
           ))}
         </div>
 
+        <div className="trinity-crm__gallery-heading">
+          <span className="trinity-crm__eyebrow" style={{ color }}>
+            <Database size={18} aria-hidden="true" />
+            <span>PRODUCT PREVIEW</span>
+          </span>
+          <h3>A clearer view of every customer relationship</h3>
+          <p>Explore the dashboards and workflows that keep teams aligned from first contact to ongoing account management.</p>
+        </div>
+
         <div className="trinity-crm__gallery" aria-label="Trinity CRM screenshots">
-          {trinityScreenshots.map((screenshot) => (
+          {trinityScreenshots.map((screenshot, index) => (
             <figure
               className={`trinity-crm__gallery-item${screenshot.featured ? " trinity-crm__gallery-item--featured" : ""}`}
               key={screenshot.src}
+              tabIndex={0}
             >
               <div className="trinity-crm__gallery-media">
                 <img
                   src={screenshot.src}
                   alt={screenshot.alt}
-                  loading="lazy"
+                  loading={index === 0 ? "eager" : "lazy"}
                   decoding="async"
                 />
               </div>
               <figcaption>
+                <span className="trinity-crm__gallery-number" style={{ color }}>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
                 <strong>{screenshot.title}</strong>
                 <span>{screenshot.description}</span>
               </figcaption>

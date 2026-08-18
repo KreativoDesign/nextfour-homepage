@@ -8,6 +8,7 @@ import ServiceDetailHero from "@/components/ServiceDetailHero";
 import SiteHeader from "@/components/SiteHeader";
 import PortfolioCarousel from "@/components/PortfolioCarousel";
 import WebDesignShowcase from "@/components/WebDesignShowcase";
+import { servicePageQuickLinks } from "@/lib/service-page-navigation";
 import { MonitorCog } from "lucide-react";
 
 export default function ServiceWebDesign() {
@@ -89,14 +90,22 @@ export default function ServiceWebDesign() {
           color={serviceColor}
           glow={serviceGlow}
           icon={MonitorCog}
+          quickLinks={servicePageQuickLinks.webDesign}
         />
 
         <ServiceDetailContent sections={contentSections} color={serviceColor} />
 
-        <section className="portfolio-section">
+        <section
+          id="recent-projects"
+          className="portfolio-section service-portfolio-section"
+          aria-labelledby="recent-projects-title"
+        >
           <div className="nf-container">
             <div className="portfolio-section__header">
-              <h2 className="portfolio-section__title">Recent Projects</h2>
+              <span className="service-section-kicker" style={{ color: serviceColor }}>
+                Selected work
+              </span>
+              <h2 id="recent-projects-title" className="portfolio-section__title">Recent Projects</h2>
               <p className="portfolio-section__subtitle">
                 Explore some of our latest web design and development work
               </p>

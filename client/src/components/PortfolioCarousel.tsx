@@ -49,15 +49,24 @@ export default function PortfolioCarousel({
       <div className="portfolio-carousel__container">
         <div className="portfolio-carousel__viewport" ref={emblaRef}>
           <div className="embla__container">
-            {items.map((item) => (
-              <div key={item.id} className="embla__slide">
-                <div className="portfolio-carousel__slide">
+            {items.map((item, index) => (
+              <div
+                key={item.id}
+                className={`embla__slide${index === selectedIndex ? " is-selected" : ""}`}
+              >
+                <figure className="portfolio-carousel__slide">
                   <img
                     src={item.image}
                     alt={item.title}
                     className="portfolio-carousel__image"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    decoding="async"
                   />
-                </div>
+                  <figcaption className="portfolio-carousel__caption">
+                    <span>{String(index + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")} · Selected project</span>
+                    <strong>{item.title}</strong>
+                  </figcaption>
+                </figure>
               </div>
             ))}
           </div>

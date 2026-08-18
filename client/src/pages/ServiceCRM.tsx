@@ -3,6 +3,8 @@ import ServiceDetailHero from "@/components/ServiceDetailHero";
 import ServiceDetailCTA from "@/components/ServiceDetailCTA";
 import TrinityCrmSection from "@/components/TrinityCrmSection";
 import CrmPlatformLogos from "@/components/CrmPlatformLogos";
+import SiteHeader from "@/components/SiteHeader";
+import { servicePageQuickLinks } from "@/lib/service-page-navigation";
 
 export default function ServiceCRM() {
   const service = {
@@ -14,30 +16,34 @@ export default function ServiceCRM() {
   };
 
   return (
-    <div className="service-detail-page">
-      <ServiceDetailHero
-        title={service.title}
-        subtitle={service.subtitle}
-        color={service.color}
-        glow={service.glow}
-        icon={service.icon}
-        quickLinks={[
-          { label: "Explore supported platforms", href: "#crm-platforms" },
-          { label: "See Trinity CRM details", href: "#trinity-crm-details" },
-        ]}
-      />
+    <div className="nextfour-page service-detail-page">
+      <div className="ambient ambient--one" aria-hidden="true" />
+      <div className="ambient ambient--two" aria-hidden="true" />
+      <div className="page-grid" aria-hidden="true" />
 
+      <SiteHeader />
 
-      <CrmPlatformLogos />
+      <main id="main-content">
+        <ServiceDetailHero
+          title={service.title}
+          subtitle={service.subtitle}
+          color={service.color}
+          glow={service.glow}
+          icon={service.icon}
+          quickLinks={servicePageQuickLinks.crm}
+        />
 
-      <TrinityCrmSection color={service.color} />
+        <CrmPlatformLogos />
 
-      <ServiceDetailCTA
-        title="Ready to Stop Losing Leads?"
-        description="Let's discuss how a properly configured CRM can transform your sales process and help your team close more deals."
-        color={service.color}
-        glow={service.glow}
-      />
+        <TrinityCrmSection color={service.color} />
+
+        <ServiceDetailCTA
+          title="Ready to Stop Losing Leads?"
+          description="Let's discuss how a properly configured CRM can transform your sales process and help your team close more deals."
+          color={service.color}
+          glow={service.glow}
+        />
+      </main>
     </div>
   );
 }

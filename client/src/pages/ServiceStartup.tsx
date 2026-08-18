@@ -7,6 +7,7 @@ import ServiceDetailContent from "@/components/ServiceDetailContent";
 import ServiceDetailHero from "@/components/ServiceDetailHero";
 import SiteHeader from "@/components/SiteHeader";
 import { Rocket } from "lucide-react";
+import { servicePageQuickLinks } from "@/lib/service-page-navigation";
 
 export default function ServiceStartup() {
   const serviceColor = "#F551B7";
@@ -65,6 +66,7 @@ export default function ServiceStartup() {
           color={serviceColor}
           glow={serviceGlow}
           icon={Rocket}
+          quickLinks={servicePageQuickLinks.startup}
         />
         
         <ServiceDetailContent sections={contentSections} color={serviceColor} />

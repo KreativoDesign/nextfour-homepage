@@ -7,6 +7,7 @@ import ServiceDetailContent from "@/components/ServiceDetailContent";
 import ServiceDetailHero from "@/components/ServiceDetailHero";
 import SiteHeader from "@/components/SiteHeader";
 import { PenTool } from "lucide-react";
+import { servicePageQuickLinks } from "@/lib/service-page-navigation";
 
 export default function ServiceBranding() {
   const serviceColor = "#C56CFF";
@@ -65,6 +66,7 @@ export default function ServiceBranding() {
           color={serviceColor}
           glow={serviceGlow}
           icon={PenTool}
+          quickLinks={servicePageQuickLinks.branding}
         />
         
         <ServiceDetailContent sections={contentSections} color={serviceColor} />

@@ -7,9 +7,9 @@ import ServiceDetailContent from "@/components/ServiceDetailContent";
 import ServiceDetailHero from "@/components/ServiceDetailHero";
 import SiteHeader from "@/components/SiteHeader";
 import { Megaphone } from "lucide-react";
-import SocialPostShowcase from "@/components/SocialPostShowcase";
 import DigitalMarketingShowcase from "@/components/DigitalMarketingShowcase";
 import DigitalMarketingPricingTiers from "@/components/DigitalMarketingPricingTiers";
+import { servicePageQuickLinks } from "@/lib/service-page-navigation";
 
 export default function ServiceMarketing() {
   const serviceColor = "#20B8FF";
@@ -68,6 +68,7 @@ export default function ServiceMarketing() {
           color={serviceColor}
           glow={serviceGlow}
           icon={Megaphone}
+          quickLinks={servicePageQuickLinks.marketing}
         />
         
         <ServiceDetailContent sections={contentSections} color={serviceColor} />

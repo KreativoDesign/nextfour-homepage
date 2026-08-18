@@ -2,6 +2,7 @@
  * ServiceDetailContent: Modular content sections for service detail pages.
  * Supports flexible layout with color-keyed accents and consistent typography.
  */
+import type { CSSProperties } from "react";
 
 interface ContentSection {
   title: string;
@@ -19,10 +20,19 @@ export default function ServiceDetailContent({
   color,
 }: ServiceDetailContentProps) {
   return (
-    <section className="service-detail-content">
+    <section
+      id="service-overview"
+      className="service-detail-content"
+      style={{ "--service-accent": color } as CSSProperties}
+      aria-label="Service approach and deliverables"
+    >
       <div className="service-detail-content__container">
         {sections.map((section, idx) => (
-          <div key={idx} className="service-detail-content__section">
+          <article key={section.title} className="service-detail-content__section">
+            <div className="service-detail-content__section-meta" aria-hidden="true">
+              <span>{String(idx + 1).padStart(2, "0")}</span>
+              <span className="service-detail-content__section-line" />
+            </div>
             <h2 className="service-detail-content__section-title" style={{ color }}>
               {section.title}
             </h2>
@@ -31,15 +41,15 @@ export default function ServiceDetailContent({
             </p>
             {section.items && section.items.length > 0 && (
               <ul className="service-detail-content__list">
-                {section.items.map((item, itemIdx) => (
-                  <li key={itemIdx} className="service-detail-content__list-item">
+                {section.items.map((item) => (
+                  <li key={item} className="service-detail-content__list-item">
                     <span className="service-detail-content__list-marker" style={{ backgroundColor: color }} />
-                    {item}
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
             )}
-          </div>
+          </article>
         ))}
       </div>
     </section>

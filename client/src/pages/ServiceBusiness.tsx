@@ -7,6 +7,7 @@ import ServiceDetailContent from "@/components/ServiceDetailContent";
 import ServiceDetailHero from "@/components/ServiceDetailHero";
 import SiteHeader from "@/components/SiteHeader";
 import { Network } from "lucide-react";
+import { servicePageQuickLinks } from "@/lib/service-page-navigation";
 
 export default function ServiceBusiness() {
   const serviceColor = "#FF8A24";
@@ -65,6 +66,7 @@ export default function ServiceBusiness() {
           color={serviceColor}
           glow={serviceGlow}
           icon={Network}
+          quickLinks={servicePageQuickLinks.business}
         />
         
         <ServiceDetailContent sections={contentSections} color={serviceColor} />

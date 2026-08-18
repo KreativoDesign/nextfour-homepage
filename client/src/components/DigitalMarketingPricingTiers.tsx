@@ -366,10 +366,11 @@ export default function DigitalMarketingPricingTiers({
   ];
 
   return (
-    <section className="nf-section py-16 md:py-24">
-      <div className="nf-container">
+    <section id="marketing-packages" className="nf-section digital-pricing-section py-16 md:py-24">
+      <div className="nf-container digital-pricing-section__container">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="digital-pricing-section__header text-center mb-16">
+          <span className="service-section-kicker">Growth packages</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="text-white">Tailored Packages,</span>
             <br />
@@ -437,7 +438,7 @@ export default function DigitalMarketingPricingTiers({
           {pricingTiers.map((tier, index) => (
             <div
               key={index}
-              className={`relative rounded-2xl border-2 ${tier.borderColor} bg-black/40 backdrop-blur p-8 hover:bg-black/60 transition-all duration-300 flex flex-col`}
+              className={`digital-pricing-card relative rounded-2xl border-2 ${tier.borderColor} bg-black/40 backdrop-blur p-8 hover:bg-black/60 transition-all duration-300 flex flex-col`}
             >
               {/* Icon */}
               <div className={`mb-6 ${tier.accentColor}`}>{tier.icon}</div>
