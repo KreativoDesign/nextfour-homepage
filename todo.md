@@ -123,4 +123,4 @@
 - [x] Validate homepage motion, carousel looping, responsive behavior, performance, and tests.
 - [x] Revalidate service carousel looping through arrow, wheel, and keyboard interactions.
 - [x] Record a focused homepage motion performance check with animation-frame and layout-safety evidence.
-- [ ] Synchronize the homepage animation update to GitHub main and verify the remote commit.
+- [x] Synchronize the homepage animation update to GitHub main and verify the remote commit.
