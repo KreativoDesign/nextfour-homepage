@@ -77,7 +77,11 @@ export default function ServiceCarousel() {
         >
           <div className="carousel-track">
             {services.map((service, index) => (
-              <div className="carousel-slide" key={service.title}>
+              <div
+                className={`carousel-slide${index === selectedIndex ? " is-selected" : ""}`}
+                data-selected={index === selectedIndex ? "true" : "false"}
+                key={service.title}
+              >
                 <ServiceCard service={service} index={index} />
               </div>
             ))}
@@ -117,4 +121,3 @@ export default function ServiceCarousel() {
     </section>
   );
 }
-

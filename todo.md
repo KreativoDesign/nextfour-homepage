@@ -118,3 +118,9 @@
 - [x] Add smooth-scroll hero anchor buttons targeting supported CRM platforms and Trinity CRM details.
 - [x] Validate tooltip accessibility, anchor scrolling, responsive layout, and tests.
 - [x] Synchronize the CRM tooltip and hero-anchor update to GitHub main and verify the remote commit.
+- [x] Add a polished, reduced-motion-safe entrance animation to the homepage headline.
+- [x] Enhance homepage carousel cards with layered hover/focus motion and clearer interaction feedback.
+- [x] Validate homepage motion, carousel looping, responsive behavior, performance, and tests.
+- [x] Revalidate service carousel looping through arrow, wheel, and keyboard interactions.
+- [x] Record a focused homepage motion performance check with animation-frame and layout-safety evidence.
+- [ ] Synchronize the homepage animation update to GitHub main and verify the remote commit.
