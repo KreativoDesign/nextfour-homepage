@@ -113,8 +113,8 @@
 - [x] Add hover and keyboard-focus tooltips describing Salesforce, HubSpot, and Pipedrive integration capabilities.
 - [x] Add smooth-scroll hero anchor buttons targeting supported CRM platforms and Trinity CRM details.
 - [x] Validate tooltip accessibility, anchor scrolling, responsive layout, and tests.
-- [ ] Synchronize the CRM tooltip and hero-anchor update to GitHub main and verify the remote commit.
+- [x] Synchronize the CRM tooltip and hero-anchor update to GitHub main and verify the remote commit.
 - [x] Add hover and keyboard-focus tooltips describing Salesforce, HubSpot, and Pipedrive integration capabilities.
 - [x] Add smooth-scroll hero anchor buttons targeting supported CRM platforms and Trinity CRM details.
 - [x] Validate tooltip accessibility, anchor scrolling, responsive layout, and tests.
-- [ ] Synchronize the CRM tooltip and hero-anchor update to GitHub main and verify the remote commit.
+- [x] Synchronize the CRM tooltip and hero-anchor update to GitHub main and verify the remote commit.
