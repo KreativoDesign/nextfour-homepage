@@ -13,6 +13,7 @@ describe("crmPlatforms", () => {
       expect(platform.src).toMatch(/^\/manus-storage\/.+\.(svg|png|jpe?g)$/);
       expect(platform.alt).toBe(`${platform.name} logo`);
       expect(platform.description.length).toBeGreaterThan(20);
+      expect(platform.tooltip.length).toBeGreaterThan(40);
     }
   });
 });

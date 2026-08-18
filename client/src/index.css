@@ -482,6 +482,48 @@ button:focus-visible, a:focus-visible, [tabindex="0"]:focus-visible {
   margin-top: 8px;
 }
 
+.service-detail-hero__quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.service-detail-hero__quick-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 16px;
+  border: 1px solid rgba(32, 184, 255, 0.62);
+  border-radius: 999px;
+  color: var(--nf-white);
+  background: rgba(32, 184, 255, 0.08);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 180ms var(--nf-ease-out), border-color 180ms var(--nf-ease-out), box-shadow 180ms var(--nf-ease-out), transform 180ms var(--nf-ease-out);
+}
+
+.service-detail-hero__quick-link:hover,
+.service-detail-hero__quick-link:focus-visible {
+  border-color: var(--nf-cyan);
+  background: rgba(32, 184, 255, 0.18);
+  box-shadow: 0 0 22px rgba(32, 184, 255, 0.18);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.service-detail-hero__quick-link svg {
+  transition: transform 180ms var(--nf-ease-out);
+}
+
+.service-detail-hero__quick-link:hover svg,
+.service-detail-hero__quick-link:focus-visible svg {
+  transform: translateY(2px);
+}
+
 /* Service Detail Content */
 
 .service-detail-content {
@@ -645,6 +687,17 @@ button:focus-visible, a:focus-visible, [tabindex="0"]:focus-visible {
 
   .service-detail-hero__title {
     font-size: clamp(1.75rem, 6vw, 2.75rem);
+  }
+
+  .service-detail-hero__quick-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .service-detail-hero__quick-link {
+    width: 100%;
+    justify-content: space-between;
   }
 
   .service-detail-hero__breadcrumb {
@@ -945,6 +998,7 @@ button:focus-visible, a:focus-visible, [tabindex="0"]:focus-visible {
 
 /* Supported CRM platform logo showcase */
 .crm-platforms {
+  scroll-margin-top: 96px;
   padding: 84px 0 88px;
   border-bottom: 1px solid var(--nf-line);
   background: radial-gradient(circle at 12% 35%, rgba(32, 184, 255, 0.08), transparent 34%), #050505;
@@ -992,6 +1046,7 @@ button:focus-visible, a:focus-visible, [tabindex="0"]:focus-visible {
 }
 
 .crm-platforms__card {
+  position: relative;
   display: flex;
   min-width: 0;
   flex-direction: column;
@@ -1003,13 +1058,21 @@ button:focus-visible, a:focus-visible, [tabindex="0"]:focus-visible {
   transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
 }
 
-.crm-platforms__card:hover {
+.crm-platforms__card:hover,
+.crm-platforms__card:focus-visible {
   border-color: rgba(32, 184, 255, 0.45);
   box-shadow: 0 0 28px rgba(32, 184, 255, 0.08);
+  outline: none;
   transform: translateY(-2px);
 }
 
+.crm-platforms__card:focus-visible {
+  outline: 2px solid var(--nf-cyan);
+  outline-offset: 4px;
+}
+
 .crm-platforms__logo-wrap {
+  position: relative;
   display: flex;
   min-height: 96px;
   align-items: center;
@@ -1017,6 +1080,32 @@ button:focus-visible, a:focus-visible, [tabindex="0"]:focus-visible {
   padding: 16px 20px;
   border-radius: 10px;
   background: #f8fafc;
+}
+
+.crm-platforms__tooltip {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  left: 12px;
+  z-index: 2;
+  padding: 9px 11px;
+  border: 1px solid rgba(32, 184, 255, 0.45);
+  border-radius: 8px;
+  color: var(--nf-white);
+  background: rgba(5, 10, 18, 0.96);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.28);
+  font-size: 0.72rem;
+  line-height: 1.4;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 180ms var(--nf-ease-out), transform 180ms var(--nf-ease-out);
+}
+
+.crm-platforms__card:hover .crm-platforms__tooltip,
+.crm-platforms__card:focus-visible .crm-platforms__tooltip {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .crm-platforms__logo {
@@ -1294,6 +1383,7 @@ button:focus-visible, a:focus-visible, [tabindex="0"]:focus-visible {
 }
 
 .trinity-crm__details {
+  scroll-margin-top: 96px;
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   gap: 60px;

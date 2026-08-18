@@ -2,7 +2,7 @@
  * ServiceDetailHero: Color-keyed hero section for service detail pages.
  * Inherits the service's accent color, glow, and establishes the page's visual identity.
  */
-import { ChevronRight } from "lucide-react";
+import { ArrowDown, ChevronRight } from "lucide-react";
 
 interface ServiceDetailHeroProps {
   title: string;
@@ -10,6 +10,7 @@ interface ServiceDetailHeroProps {
   color: string;
   glow: string;
   icon: React.ComponentType<{ size: number; className: string }>;
+  quickLinks?: Array<{ label: string; href: string }>;
 }
 
 export default function ServiceDetailHero({
@@ -18,6 +19,7 @@ export default function ServiceDetailHero({
   color,
   glow,
   icon: Icon,
+  quickLinks,
 }: ServiceDetailHeroProps) {
   return (
     <section className="service-detail-hero">
@@ -46,6 +48,17 @@ export default function ServiceDetailHero({
         </div>
 
         <p className="service-detail-hero__subtitle">{subtitle}</p>
+
+        {quickLinks && quickLinks.length > 0 && (
+          <nav className="service-detail-hero__quick-links" aria-label="Jump to CRM sections">
+            {quickLinks.map((link) => (
+              <a className="service-detail-hero__quick-link" href={link.href} key={link.href}>
+                <span>{link.label}</span>
+                <ArrowDown size={16} aria-hidden="true" />
+              </a>
+            ))}
+          </nav>
+        )}
       </div>
     </section>
   );

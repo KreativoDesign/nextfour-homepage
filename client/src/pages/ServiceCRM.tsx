@@ -21,6 +21,10 @@ export default function ServiceCRM() {
         color={service.color}
         glow={service.glow}
         icon={service.icon}
+        quickLinks={[
+          { label: "Explore supported platforms", href: "#crm-platforms" },
+          { label: "See Trinity CRM details", href: "#trinity-crm-details" },
+        ]}
       />
 
 

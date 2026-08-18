@@ -110,3 +110,11 @@
 - [x] Remove the CRM service overview blocks for Our Approach, What We Deliver, and Why Choose NextFour.
 - [x] Validate the shortened CRM page on desktop and mobile and run the existing tests.
 - [x] Synchronize the CRM overview removal to GitHub main and verify the remote commit.
+- [x] Add hover and keyboard-focus tooltips describing Salesforce, HubSpot, and Pipedrive integration capabilities.
+- [x] Add smooth-scroll hero anchor buttons targeting supported CRM platforms and Trinity CRM details.
+- [x] Validate tooltip accessibility, anchor scrolling, responsive layout, and tests.
+- [ ] Synchronize the CRM tooltip and hero-anchor update to GitHub main and verify the remote commit.
+- [x] Add hover and keyboard-focus tooltips describing Salesforce, HubSpot, and Pipedrive integration capabilities.
+- [x] Add smooth-scroll hero anchor buttons targeting supported CRM platforms and Trinity CRM details.
+- [x] Validate tooltip accessibility, anchor scrolling, responsive layout, and tests.
+- [ ] Synchronize the CRM tooltip and hero-anchor update to GitHub main and verify the remote commit.

@@ -3,7 +3,7 @@ import { crmPlatforms } from "@/lib/crm-platforms";
 
 export default function CrmPlatformLogos() {
   return (
-    <section className="crm-platforms" aria-labelledby="crm-platforms-title">
+    <section id="crm-platforms" className="crm-platforms" aria-labelledby="crm-platforms-title">
       <div className="crm-platforms__container">
         <div className="crm-platforms__intro">
           <span className="crm-platforms__eyebrow">CRM SYSTEMS WE CONFIGURE</span>
@@ -17,7 +17,12 @@ export default function CrmPlatformLogos() {
 
         <div className="crm-platforms__grid" aria-label="Supported CRM platforms">
           {crmPlatforms.map((platform) => (
-            <article className="crm-platforms__card" key={platform.name}>
+            <article
+              className="crm-platforms__card"
+              key={platform.name}
+              tabIndex={0}
+              aria-describedby={`crm-platform-tooltip-${platform.name.toLowerCase()}`}
+            >
               <div className="crm-platforms__logo-wrap">
                 <img
                   src={platform.src}
@@ -26,6 +31,13 @@ export default function CrmPlatformLogos() {
                   loading="lazy"
                   decoding="async"
                 />
+                <div
+                  id={`crm-platform-tooltip-${platform.name.toLowerCase()}`}
+                  className="crm-platforms__tooltip"
+                  role="tooltip"
+                >
+                  {platform.tooltip}
+                </div>
               </div>
               <div className="crm-platforms__card-copy">
                 <div className="crm-platforms__card-title">

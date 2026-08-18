@@ -115,7 +115,7 @@ export default function TrinityCrmSection({ color }: TrinityCrmSectionProps) {
           </button>
         </div>
 
-        <div className="trinity-crm__details" aria-labelledby="trinity-crm-details-title">
+        <div id="trinity-crm-details" className="trinity-crm__details" aria-labelledby="trinity-crm-details-title">
           <div className="trinity-crm__details-heading">
             <span className="trinity-crm__eyebrow" style={{ color }}>
               <Database size={18} aria-hidden="true" />
