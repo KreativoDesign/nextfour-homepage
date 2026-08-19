@@ -14,6 +14,26 @@ The website is designed as a public-facing marketing platform. It gives prospect
 | CRM Management    | Salesforce, HubSpot, and Pipedrive capability cards; Trinity CRM features, screenshots, onboarding timeline, support accordion, and demo request flow. |
 | Inquiry capture   | Public, validated modal forms persisted to the database through tRPC.                                                                                  |
 
+## Screenshot Gallery
+
+These previews show the visual system carried from the animated homepage into key service experiences. The managed images are served from the configured NextFour staging domain rather than committed to the application source tree.
+
+### Homepage
+
+![NextFour homepage showing the animated statement and service carousel](https://staging.nextfour.co.za/manus-storage/homepage_9cf6369b.png)
+
+### Web Design & Development
+
+![NextFour Web Design and Development service page with hero and section navigation](https://staging.nextfour.co.za/manus-storage/web-design_e40472da.png)
+
+### Digital Marketing
+
+![NextFour Digital Marketing service page with campaign showcase and package navigation](https://staging.nextfour.co.za/manus-storage/digital-marketing_291963ef.png)
+
+### CRM Management Systems
+
+![NextFour CRM Management Systems page with CRM platform cards and Trinity section](https://staging.nextfour.co.za/manus-storage/crm-management_2e276a41.png)
+
 ## Service Routes
 
 | Service                   | Route                           |
@@ -29,14 +49,14 @@ Each service page includes an accent-aware hero, local quick-jump links, structu
 
 ## Technology Stack
 
-| Layer              | Technologies                                                              |
-| ------------------ | ------------------------------------------------------------------------- |
-| Frontend           | React 19, TypeScript, Vite, Tailwind CSS 4, Wouter                        |
-| UI and interaction | Radix UI primitives, Lucide icons, Embla Carousel, Framer Motion          |
-| Server             | Express 4 with tRPC 11                                                    |
-| Data               | Drizzle ORM with MySQL/TiDB                                               |
-| Forms              | React Hook Form, Zod, tRPC mutations                                      |
-| Quality            | Vitest, TypeScript compiler checks, responsive and interaction validation |
+| Layer              | Technologies                                                                              |
+| ------------------ | ----------------------------------------------------------------------------------------- |
+| Frontend           | React 19, TypeScript, Vite, Tailwind CSS 4, Wouter                                        |
+| UI and interaction | Radix UI primitives, Lucide icons, Embla Carousel, Framer Motion                          |
+| Server             | Express 4 with tRPC 11                                                                    |
+| Data               | Drizzle ORM with MySQL/TiDB                                                               |
+| Forms              | React Hook Form, Zod, tRPC mutations                                                      |
+| Quality            | Vitest, TypeScript compiler checks, GitHub Actions, responsive and interaction validation |
 
 ## Repository Structure
 
@@ -54,6 +74,23 @@ drizzle/
   schema.ts         User and inquiry table definitions
 shared/             Shared types and constants
 todo.md              Historical implementation checklist
+```
+
+## Architecture
+
+The client is a React single-page application that routes service experiences with Wouter. Public inquiry forms call typed tRPC procedures through the Express server, which validates submissions with Zod and persists them through Drizzle. The managed runtime also provides OAuth, storage, and the deployed application entry point.
+
+```mermaid
+flowchart LR
+  Visitor[Visitor] --> Client[React 19 + Wouter client]
+  Client --> Components[Service pages and reusable components]
+  Components --> Inquiry[InquiryModal]
+  Inquiry --> TRPC[tRPC public procedure]
+  TRPC --> Server[Express server]
+  Server --> Validation[Zod validation]
+  Validation --> DB[Drizzle ORM + MySQL/TiDB]
+  Server --> OAuth[Manus OAuth]
+  Client --> Assets[Managed image storage]
 ```
 
 ## Inquiry Workflow
@@ -110,6 +147,16 @@ pnpm check
 ```
 
 The current suite covers the inquiry copy resolver, pricing matrix, marketing navigation, CRM content and platform data, carousel behavior, homepage motion configuration, and shared service-page quick navigation. Responsive validation should additionally confirm the service routes at desktop and mobile widths, especially package dialogs, CRM demo requests, carousel navigation, and anchor links.
+
+### Continuous Integration
+
+The repository includes [`.github/workflows/quality.yml`](.github/workflows/quality.yml). It runs on pull requests targeting `main` and pushes to `main`, installing locked dependencies before checking README/workflow formatting, running Vitest, and running TypeScript without emitting files.
+
+| CI step                               | Command                                                              |
+| ------------------------------------- | -------------------------------------------------------------------- |
+| Documentation and workflow formatting | `pnpm exec prettier --check README.md .github/workflows/quality.yml` |
+| Automated tests                       | `pnpm test`                                                          |
+| Static type validation                | `pnpm check`                                                         |
 
 ## Contributing
 

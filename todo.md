@@ -134,3 +134,9 @@
 - [x] Add a root README with a NextFour project overview, architecture, service-page guide, setup commands, testing, and contribution notes.
 - [x] Validate README commands and statements against the project implementation.
 - [x] Synchronize the README update to GitHub main and verify the remote commit.
+- [x] Inspect the current README, test setup, and GitHub workflow conventions for documentation and CI additions.
+- [x] Capture and upload managed homepage and key service screenshots for the README gallery.
+- [x] Add a concise architecture diagram and screenshot gallery to the README.
+- [x] Add a GitHub Actions workflow for formatting, Vitest, and TypeScript checks on pushes and pull requests.
+- [x] Validate README formatting, gallery asset URLs, workflow YAML, tests, and TypeScript.
+- [ ] Synchronize the README visual documentation and CI workflow update to GitHub main and verify the remote commit.
