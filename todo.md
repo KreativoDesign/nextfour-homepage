@@ -138,5 +138,6 @@
 - [x] Capture and upload managed homepage and key service screenshots for the README gallery.
 - [x] Add a concise architecture diagram and screenshot gallery to the README.
 - [x] Add a GitHub Actions workflow for formatting, Vitest, and TypeScript checks on pushes and pull requests.
-- [x] Validate README formatting, gallery asset URLs, workflow YAML, tests, and TypeScript.
+- [ ] Validate README formatting, gallery asset URLs, workflow YAML, tests, TypeScript, and the live GitHub Actions run.
+- [ ] Confirm the corrected GitHub Actions workflow completes successfully on main.
 - [ ] Synchronize the README visual documentation and CI workflow update to GitHub main and verify the remote commit.
