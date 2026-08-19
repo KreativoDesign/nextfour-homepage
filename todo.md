@@ -144,4 +144,4 @@
 - [x] Inspect the existing navigation and theme context for an accessible persistent toggle integration.
 - [x] Add a navigation dark-mode toggle with persisted preference and a polished light theme.
 - [x] Validate dark/light theme contrast, keyboard semantics, desktop/mobile behavior, tests, and TypeScript.
-- [ ] Synchronize the dark-mode navigation update to GitHub main and verify the remote commit.
+- [x] Synchronize the dark-mode navigation update to GitHub main and verify the remote commit.
