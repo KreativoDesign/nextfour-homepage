@@ -1,12 +1,16 @@
 export type NextFourTheme = "light" | "dark";
 
 export const THEME_STORAGE_KEY = "nextfour-theme";
+export const THEME_TRANSITION_DURATION = 260;
 
 export function isNextFourTheme(value: string | null): value is NextFourTheme {
   return value === "light" || value === "dark";
 }
 
-export function resolveNextFourTheme(value: string | null, fallback: NextFourTheme): NextFourTheme {
+export function resolveNextFourTheme(
+  value: string | null,
+  fallback: NextFourTheme
+): NextFourTheme {
   return isNextFourTheme(value) ? value : fallback;
 }
 

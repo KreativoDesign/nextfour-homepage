@@ -1,8 +1,15 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import {
   getNextFourTheme,
   resolveNextFourTheme,
   THEME_STORAGE_KEY,
+  THEME_TRANSITION_DURATION,
   type NextFourTheme,
 } from "@/lib/theme";
 
@@ -27,15 +34,32 @@ export function ThemeProvider({
   defaultTheme = "light",
   switchable = false,
 }: ThemeProviderProps) {
+  const hasAppliedInitialTheme = useRef(false);
+  const transitionTimeout = useRef<number | undefined>(undefined);
   const [theme, setTheme] = useState<Theme>(() => {
     if (switchable && typeof window !== "undefined") {
-      return resolveNextFourTheme(window.localStorage.getItem(THEME_STORAGE_KEY), defaultTheme);
+      return resolveNextFourTheme(
+        window.localStorage.getItem(THEME_STORAGE_KEY),
+        defaultTheme
+      );
     }
     return defaultTheme;
   });
 
   useEffect(() => {
     const root = document.documentElement;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    const shouldAnimate =
+      hasAppliedInitialTheme.current && !prefersReducedMotion;
+
+    if (shouldAnimate) {
+      window.clearTimeout(transitionTimeout.current);
+      root.classList.add("theme-transitioning");
+      void root.offsetWidth;
+    }
+
     if (theme === "dark") {
       root.classList.add("dark");
       root.classList.remove("light");
@@ -47,7 +71,19 @@ export function ThemeProvider({
     if (switchable) {
       window.localStorage.setItem(THEME_STORAGE_KEY, theme);
     }
+
+    if (shouldAnimate) {
+      transitionTimeout.current = window.setTimeout(() => {
+        root.classList.remove("theme-transitioning");
+      }, THEME_TRANSITION_DURATION);
+    }
+
+    hasAppliedInitialTheme.current = true;
   }, [theme, switchable]);
+
+  useEffect(() => {
+    return () => window.clearTimeout(transitionTimeout.current);
+  }, []);
 
   const toggleTheme = switchable
     ? () => {

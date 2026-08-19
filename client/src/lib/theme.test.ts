@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { getNextFourTheme, getThemeToggleLabel, resolveNextFourTheme } from "./theme";
+import {
+  getNextFourTheme,
+  getThemeToggleLabel,
+  resolveNextFourTheme,
+  THEME_TRANSITION_DURATION,
+} from "./theme";
 
 describe("NextFour theme helpers", () => {
   it("uses a valid stored theme and falls back safely for invalid values", () => {
@@ -14,5 +19,10 @@ describe("NextFour theme helpers", () => {
     expect(getNextFourTheme("light")).toBe("dark");
     expect(getThemeToggleLabel("dark")).toBe("Switch to light mode");
     expect(getThemeToggleLabel("light")).toBe("Switch to dark mode");
+  });
+
+  it("uses a short transition duration suitable for an occasional preference change", () => {
+    expect(THEME_TRANSITION_DURATION).toBe(260);
+    expect(THEME_TRANSITION_DURATION).toBeLessThanOrEqual(300);
   });
 });
