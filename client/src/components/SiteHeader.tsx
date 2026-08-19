@@ -2,16 +2,20 @@
  * NextFour design reminder: Preserve the reference's restrained floating header;
  * use Signal Green only for purposeful states and add glass density only on scroll.
  */
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { navItems } from "@/lib/nextfour-data";
+import { getThemeToggleLabel } from "@/lib/theme";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const markUrl = "/manus-storage/nextfour-logo_e4958a45.png";
 
 export default function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { theme, toggleTheme, switchable } = useTheme();
+  const themeToggleLabel = getThemeToggleLabel(theme);
 
   useEffect(() => {
     const updateHeader = () => setIsScrolled(window.scrollY > 16);
@@ -63,6 +67,19 @@ export default function SiteHeader() {
         </nav>
 
         <div className="site-header__actions">
+          {switchable && toggleTheme && (
+            <button
+              className="theme-toggle"
+              type="button"
+              aria-label={themeToggleLabel}
+              aria-pressed={theme === "light"}
+              title={themeToggleLabel}
+              onClick={toggleTheme}
+            >
+              {theme === "dark" ? <Sun aria-hidden="true" size={19} /> : <Moon aria-hidden="true" size={18} />}
+              <span className="visually-hidden">{themeToggleLabel}</span>
+            </button>
+          )}
           <button className="header-cta" type="button" onClick={showContactMessage}>
             <span>Get in touch</span>
             <ArrowUpRight aria-hidden="true" size={17} strokeWidth={1.7} />

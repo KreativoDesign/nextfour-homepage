@@ -141,3 +141,7 @@
 - [x] Validate README formatting, gallery asset URLs, workflow YAML, tests, TypeScript, and the live GitHub Actions run.
 - [x] Confirm the corrected GitHub Actions workflow completes successfully on main.
 - [x] Synchronize the README visual documentation and CI workflow update to GitHub main and verify the remote commit.
+- [x] Inspect the existing navigation and theme context for an accessible persistent toggle integration.
+- [x] Add a navigation dark-mode toggle with persisted preference and a polished light theme.
+- [x] Validate dark/light theme contrast, keyboard semantics, desktop/mobile behavior, tests, and TypeScript.
+- [ ] Synchronize the dark-mode navigation update to GitHub main and verify the remote commit.

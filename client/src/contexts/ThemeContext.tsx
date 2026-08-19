@@ -1,6 +1,12 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
+import {
+  getNextFourTheme,
+  resolveNextFourTheme,
+  THEME_STORAGE_KEY,
+  type NextFourTheme,
+} from "@/lib/theme";
 
-type Theme = "light" | "dark";
+type Theme = NextFourTheme;
 
 interface ThemeContextType {
   theme: Theme;
@@ -22,9 +28,8 @@ export function ThemeProvider({
   switchable = false,
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => {
-    if (switchable) {
-      const stored = localStorage.getItem("theme");
-      return (stored as Theme) || defaultTheme;
+    if (switchable && typeof window !== "undefined") {
+      return resolveNextFourTheme(window.localStorage.getItem(THEME_STORAGE_KEY), defaultTheme);
     }
     return defaultTheme;
   });
@@ -33,18 +38,20 @@ export function ThemeProvider({
     const root = document.documentElement;
     if (theme === "dark") {
       root.classList.add("dark");
+      root.classList.remove("light");
     } else {
       root.classList.remove("dark");
+      root.classList.add("light");
     }
 
     if (switchable) {
-      localStorage.setItem("theme", theme);
+      window.localStorage.setItem(THEME_STORAGE_KEY, theme);
     }
   }, [theme, switchable]);
 
   const toggleTheme = switchable
     ? () => {
-        setTheme(prev => (prev === "light" ? "dark" : "light"));
+        setTheme(getNextFourTheme);
       }
     : undefined;
 
