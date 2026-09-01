@@ -63,7 +63,7 @@ export default function Hero() {
     >
       <div className="openv-hero__backdrop" aria-hidden="true" />
       <div className="nf-container openv-hero__inner">
-        <div className="openv-hero__copy" key={active.id}>
+        <div className="openv-hero__copy">
           <div className="openv-hero__eyebrow">
             <span /> OpenV Group / Hero direction
           </div>
