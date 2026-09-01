@@ -5,6 +5,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "../../openv-hero.css";
+@import "../../openv-hero-overrides.css";
 
 :root {
   --nf-ink: #050606;

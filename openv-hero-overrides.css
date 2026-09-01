@@ -1,0 +1,181 @@
+/* Director review refinement: borderless brand architecture. */
+.openv-brand-block {
+  min-height: 196px;
+  padding: 18px 22px 16px;
+  border: 0;
+  border-top: 1px solid
+    color-mix(in srgb, var(--brand-accent) 72%, rgba(255, 255, 255, 0.18));
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transition:
+    transform 220ms var(--nf-ease-out),
+    color 220ms var(--nf-ease-out),
+    border-color 220ms var(--nf-ease-out);
+}
+.openv-brand-block::before {
+  top: -1px;
+  height: 1px;
+  opacity: 1;
+}
+.openv-brand-block:hover {
+  border-color: var(--brand-accent);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--brand-accent) 7%, transparent),
+    transparent 62%
+  );
+  transform: translateY(-4px);
+}
+.openv-brand-block__identity {
+  margin-top: 25px;
+}
+.openv-brand-block__tags span {
+  padding: 0;
+  border: 0;
+  color: color-mix(in srgb, var(--brand-accent) 72%, rgba(243, 245, 243, 0.6));
+}
+.openv-brand-block__tags span + span::before {
+  margin: 0 7px 0 5px;
+  content: "/";
+  color: rgba(243, 245, 243, 0.25);
+}
+.openv-brand-block__link {
+  right: 22px;
+  bottom: 16px;
+}
+
+/* Option 01 — open editorial columns with generous whitespace. */
+.openv-brand-blocks--editorial {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.openv-brand-blocks--editorial .openv-brand-block {
+  border-left: 1px solid rgba(243, 245, 243, 0.14);
+}
+.openv-brand-blocks--editorial .openv-brand-block:first-child {
+  border-left: 0;
+  padding-left: 3px;
+}
+.openv-brand-blocks--editorial .openv-brand-block:hover {
+  transform: translateY(-4px);
+}
+
+/* Option 02 — an executive stepped composition; each brand sits on a single rule. */
+.openv-brand-blocks--executive {
+  grid-template-columns: 1fr 1.12fr 0.86fr;
+  gap: clamp(18px, 3vw, 48px);
+  align-items: start;
+}
+.openv-brand-blocks--executive .openv-brand-block {
+  min-height: 174px;
+  padding-inline: 0;
+  border-top: 2px solid var(--brand-accent);
+}
+.openv-brand-blocks--executive .openv-brand-block:nth-child(2) {
+  margin-top: 34px;
+  transform: none;
+}
+.openv-brand-blocks--executive .openv-brand-block:nth-child(3) {
+  margin-top: 68px;
+}
+.openv-brand-blocks--executive .openv-brand-block:nth-child(2):hover {
+  transform: translateY(-4px);
+}
+.openv-brand-blocks--executive .openv-brand-block__identity {
+  margin-top: 18px;
+}
+
+/* Option 03 — a connected operating rail with vertical dividers, not boxes. */
+.openv-brand-blocks--systems {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.openv-brand-blocks--systems .openv-brand-block {
+  min-height: 183px;
+  padding-inline: 24px;
+  border: 0;
+  border-left: 1px dashed rgba(243, 245, 243, 0.25);
+  background: transparent;
+}
+.openv-brand-blocks--systems .openv-brand-block:first-child {
+  border-left: 0;
+  padding-left: 3px;
+}
+.openv-brand-blocks--systems .openv-brand-block::after {
+  position: absolute;
+  top: 0;
+  left: -3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  content: "";
+  background: var(--brand-accent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--brand-accent) 70%, transparent);
+}
+.openv-brand-blocks--systems .openv-brand-block:first-child::after {
+  left: 0;
+}
+.openv-brand-blocks--systems .openv-brand-block:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    transparent 62%
+  );
+  transform: translateY(-4px);
+}
+.openv-brand-blocks--systems .openv-brand-block__topline {
+  flex-direction: row-reverse;
+}
+
+.openv-hero__copy {
+  animation: openv-copy-in 420ms var(--nf-ease-out) both;
+}
+@keyframes openv-copy-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 820px) {
+  .openv-brand-blocks--editorial,
+  .openv-brand-blocks--executive,
+  .openv-brand-blocks--systems {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .openv-brand-block,
+  .openv-brand-blocks--executive .openv-brand-block,
+  .openv-brand-blocks--systems .openv-brand-block {
+    min-height: 146px;
+    padding: 17px 0;
+    border: 0;
+    border-top: 1px solid rgba(243, 245, 243, 0.2);
+  }
+  .openv-brand-blocks--editorial .openv-brand-block:first-child,
+  .openv-brand-blocks--systems .openv-brand-block:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .openv-brand-blocks--executive .openv-brand-block:nth-child(2),
+  .openv-brand-blocks--executive .openv-brand-block:nth-child(3) {
+    margin-top: 0;
+  }
+  .openv-brand-blocks--systems .openv-brand-block {
+    border-left: 0;
+  }
+  .openv-brand-blocks--systems .openv-brand-block::after,
+  .openv-brand-blocks--systems .openv-brand-block:first-child::after {
+    top: -3px;
+    left: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .openv-hero__copy {
+    animation: none;
+  }
+}
