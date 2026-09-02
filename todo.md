@@ -191,3 +191,8 @@
 - [x] Add a subtle scroll-driven gridline fade after the main hero with reduced-motion-safe behavior.
 - [x] Validate scroll fade, responsive scale, theme contrast, layout, tests, and TypeScript.
 - [x] Synchronize the responsive gridline update to GitHub main and verify the remote commit.
+- [x] Inspect homepage composition and existing card/content patterns for a compatible featured-content section.
+- [x] Add a featured-content card section directly below the homepage hero, aligned with the responsive gridline layout.
+- [x] Preserve existing carousel, theme, scroll-fade, and navigation behavior while adding the section.
+- [x] Validate featured-card alignment, responsive layout, accessibility, interactions, themes, tests, and TypeScript.
+- [ ] Synchronize the featured-content section to GitHub main and verify the remote commit.
