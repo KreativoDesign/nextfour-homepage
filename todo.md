@@ -186,3 +186,8 @@
 - [x] Preserve the uploaded image aspect ratio and reduce the gridline scale without overpowering the homepage.
 - [x] Validate crispness, scale, opacity, theme readability, responsive layout, tests, and TypeScript.
 - [x] Synchronize the corrected gridline sizing update to GitHub main and verify the remote commit.
+- [x] Inspect homepage scroll structure and current gridline layering for responsive scale and fade integration.
+- [x] Add tablet/mobile gridline scale overrides so smaller screens have a more open pattern.
+- [x] Add a subtle scroll-driven gridline fade after the main hero with reduced-motion-safe behavior.
+- [x] Validate scroll fade, responsive scale, theme contrast, layout, tests, and TypeScript.
+- [ ] Synchronize the responsive gridline update to GitHub main and verify the remote commit.

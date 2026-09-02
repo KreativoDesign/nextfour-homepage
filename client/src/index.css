@@ -4344,7 +4344,8 @@ html.light .service-card:is(:hover, :focus-visible) .service-card__icon {
 
 /* Uploaded Homepage Gridline Background */
 .page-grid {
-  opacity: 0.32;
+  opacity: var(--nf-grid-opacity, 0.32);
+  transition: opacity 180ms linear;
   background-image:
     linear-gradient(rgba(5, 6, 6, 0.54), rgba(5, 6, 6, 0.62)),
     url("/manus-storage/homepage-gridlines_42c60ad9.webp"),
@@ -4382,4 +4383,56 @@ html.light .page-grid {
     44px 44px,
     44px 44px;
   background-repeat: no-repeat, repeat, repeat, repeat;
+}
+
+/* Keep the uploaded grid airy on smaller screens without stretching the source image. */
+@media (max-width: 1023px) {
+  .page-grid--homepage {
+    background-size:
+      100% 100%,
+      1120px auto,
+      44px 44px,
+      44px 44px;
+  }
+
+  html.light .page-grid--homepage {
+    background-size:
+      100% 100%,
+      1120px auto,
+      44px 44px,
+      44px 44px;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-grid--homepage {
+    background-size:
+      100% 100%,
+      1320px auto,
+      44px 44px,
+      44px 44px;
+  }
+
+  html.light .page-grid--homepage {
+    background-size:
+      100% 100%,
+      1320px auto,
+      44px 44px,
+      44px 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-grid--homepage {
+    transition: none;
+  }
+}
+
+/* The homepage scroll fade owns opacity after the theme base is established. */
+.page-grid--homepage {
+  opacity: var(--nf-grid-opacity, 0.32);
+}
+
+html.light .page-grid--homepage {
+  opacity: var(--nf-grid-opacity, 0.16);
 }
