@@ -1,6 +1,5 @@
 import { useEffect, useState, type CSSProperties } from "react";
 
-import FeaturedContent from "@/components/FeaturedContent";
 import Hero from "@/components/Hero";
 import PartnerStrip from "@/components/PartnerStrip";
 import ServiceCarousel from "@/components/ServiceCarousel";
@@ -100,7 +99,6 @@ export default function Home() {
       <SiteHeader />
       <main id="main-content">
         <Hero />
-        <FeaturedContent />
         <ServiceCarousel />
         <PartnerStrip />
       </main>

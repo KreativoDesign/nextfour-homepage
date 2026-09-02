@@ -196,3 +196,8 @@
 - [x] Preserve existing carousel, theme, scroll-fade, and navigation behavior while adding the section.
 - [x] Validate featured-card alignment, responsive layout, accessibility, interactions, themes, tests, and TypeScript.
 - [x] Synchronize the featured-content section to GitHub main and verify the remote commit.
+- [x] Inspect the prior Featured Capabilities implementation and identify only its duplicate-section artifacts.
+- [x] Remove the duplicate Featured Capabilities section and restore the direct hero-to-carousel flow.
+- [x] Remove unused featured-content component, data, tests, and styles without affecting existing homepage behavior.
+- [x] Validate the restored homepage flow, responsive visuals, tests, TypeScript, and build.
+- [ ] Synchronize the removal to GitHub main and verify the remote commit.
