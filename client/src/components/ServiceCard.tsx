@@ -30,9 +30,16 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
       <div className="service-card__wash" aria-hidden="true" />
       <div className="service-card__content">
         <div className="service-card__icon" aria-hidden="true">
-          <Icon size={34} strokeWidth={1.65} />
+          <Icon
+            size={35}
+            strokeWidth={1.55}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </div>
-        <h2 id={`service-title-${index}`} className="service-card__title">{service.title}</h2>
+        <h2 id={`service-title-${index}`} className="service-card__title">
+          {service.title}
+        </h2>
         <p className="service-card__description">{service.description}</p>
       </div>
       <div className="service-card__art-wrap" aria-hidden="true">
@@ -51,4 +58,3 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
     </Link>
   );
 }
-

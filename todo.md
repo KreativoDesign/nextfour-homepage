@@ -160,3 +160,7 @@
 - [x] Implement smooth easing for carousel arrow clicks and drag interactions, with a reduced-motion fallback.
 - [x] Validate the eased carousel motion, looping, responsive layout, tests, and TypeScript.
 - [x] Synchronize the carousel easing update to GitHub main and verify the remote commit.
+- [x] Audit the current service-card icon data and choose a cohesive premium monochrome mapping for every service.
+- [x] Replace the service-card icons with one-color symbols that clearly represent each service.
+- [x] Validate icon semantics, color consistency, responsive sizing, accessibility, tests, and TypeScript.
+- [ ] Synchronize the premium service-icon update to GitHub main and verify the remote commit.

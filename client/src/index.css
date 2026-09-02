@@ -4113,3 +4113,19 @@ html.theme-transitioning .header-cta {
     transition-duration: 0ms;
   }
 }
+
+/* Premium Monochrome Service Icons */
+.service-card__icon {
+  color: #b8ff00 !important;
+  filter: drop-shadow(0 0 9px rgba(184, 255, 0, 0.38)) !important;
+}
+.service-card:is(:hover, :focus-visible) .service-card__icon {
+  filter: drop-shadow(0 0 14px rgba(184, 255, 0, 0.52)) !important;
+}
+html.light .service-card__icon {
+  color: #b8ff00 !important;
+  filter: none !important;
+}
+html.light .service-card:is(:hover, :focus-visible) .service-card__icon {
+  filter: none !important;
+}
