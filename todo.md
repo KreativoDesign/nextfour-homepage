@@ -164,3 +164,9 @@
 - [x] Replace the service-card icons with one-color symbols that clearly represent each service.
 - [x] Validate icon semantics, color consistency, responsive sizing, accessibility, tests, and TypeScript.
 - [x] Synchronize the premium service-icon update to GitHub main and verify the remote commit.
+- [x] Inspect the current service-card icon styling and define a consistent off-white/grey 3D treatment.
+- [x] Apply a dimensional 3D icon treatment with fixed off-white/grey color, highlights, depth, and hover lift.
+- [x] Validate icon contrast, 3D rendering, reduced-motion behavior, responsive layout, tests, and TypeScript.
+- [ ] Synchronize the 3D service-icon update to GitHub main and verify the remote commit.
+- [x] Validate the 3D icon treatment with prefers-reduced-motion enabled and confirm hover/focus motion is suppressed.
+- [x] Verify the off-white/grey 3D icon treatment remains legible in both dark and light themes.
