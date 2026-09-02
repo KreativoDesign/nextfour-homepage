@@ -4356,11 +4356,11 @@ html.light .service-card:is(:hover, :focus-visible) .service-card__icon {
     center top,
     center top;
   background-size:
-    cover,
-    cover,
+    100% 100%,
+    960px auto,
     44px 44px,
     44px 44px;
-  background-repeat: no-repeat, no-repeat, repeat, repeat;
+  background-repeat: no-repeat, repeat, repeat, repeat;
   background-blend-mode: normal, normal, normal, normal;
   mask-image: linear-gradient(
     to bottom,
@@ -4376,4 +4376,10 @@ html.light .page-grid {
     url("/manus-storage/homepage-gridlines_42c60ad9.webp"),
     linear-gradient(rgba(20, 33, 25, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(20, 33, 25, 0.04) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    960px auto,
+    44px 44px,
+    44px 44px;
+  background-repeat: no-repeat, repeat, repeat, repeat;
 }

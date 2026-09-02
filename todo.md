@@ -182,3 +182,7 @@
 - [x] Add the gridline image as a subtle full-homepage background with controlled opacity and contrast overlays.
 - [x] Validate background opacity, text/card readability, dark/light themes, responsive layout, tests, and TypeScript.
 - [x] Synchronize the homepage gridline background update to GitHub main and verify the remote commit.
+- [x] Diagnose the current gridline background stretch, scale, and pixelation behavior.
+- [x] Preserve the uploaded image aspect ratio and reduce the gridline scale without overpowering the homepage.
+- [x] Validate crispness, scale, opacity, theme readability, responsive layout, tests, and TypeScript.
+- [ ] Synchronize the corrected gridline sizing update to GitHub main and verify the remote commit.
