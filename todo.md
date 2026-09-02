@@ -172,3 +172,7 @@
 - [x] Verify the off-white/grey 3D icon treatment remains legible in both dark and light themes.
 - [x] Push the 3D service-icon update to GitHub main and verify the remote SHA matches the local commit.
 - [x] Save a final checkpoint after successful GitHub synchronization and then mark the 3D service-icon sync todo complete.
+- [x] Audit the current holographic service-icon treatment against the requested restrained 3D direction.
+- [x] Recreate the service-card icons with matte off-white/grey faces, shallow extrusion, and soft shadows without neon or holographic effects.
+- [x] Validate the revised icon appearance, themes, responsive layout, reduced-motion behavior, tests, and TypeScript.
+- [ ] Synchronize the restrained 3D service-icon update to GitHub main and verify the remote commit.

@@ -4254,3 +4254,90 @@ html.light .service-card:is(:hover, :focus-visible) .service-card__icon {
     transform: translateZ(14px) rotateX(7deg) rotateY(-8deg);
   }
 }
+
+/* Restrained Matte 3D Service Icons */
+.service-card__icon {
+  width: 54px;
+  height: 54px;
+  color: #d9dde1 !important;
+  filter: none !important;
+  perspective: none;
+  transform: none;
+  transform-style: flat;
+  transition:
+    transform 260ms var(--nf-ease-out),
+    color 220ms var(--nf-ease-out);
+}
+.service-card__icon::before {
+  inset: 7px;
+  border: 1px solid rgba(226, 230, 234, 0.17);
+  border-radius: 12px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.13),
+    rgba(139, 147, 156, 0.12) 54%,
+    rgba(23, 27, 33, 0.38)
+  );
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.2),
+    inset -1px -2px 0 rgba(8, 11, 15, 0.28),
+    3px 4px 0 rgba(90, 98, 106, 0.46),
+    6px 8px 8px rgba(0, 0, 0, 0.27);
+  transform: translateZ(-6px) rotate(-2deg);
+}
+.service-card__icon::after {
+  display: none;
+}
+.service-card__icon svg {
+  color: inherit;
+  filter: drop-shadow(1px 1px 0 rgba(255, 255, 255, 0.48))
+    drop-shadow(2px 3px 0 rgba(126, 134, 142, 0.72))
+    drop-shadow(3px 5px 4px rgba(0, 0, 0, 0.34));
+  transform: translateZ(7px) rotateX(2deg) rotateY(-2deg);
+  transform-style: preserve-3d;
+  transition:
+    filter 260ms var(--nf-ease-out),
+    transform 260ms var(--nf-ease-out);
+}
+.service-card:is(:hover, :focus-visible) .service-card__icon {
+  color: #e1e4e7 !important;
+  transform: translate3d(0, -2px, 0);
+}
+.service-card:is(:hover, :focus-visible) .service-card__icon::before {
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.24),
+    inset -1px -2px 0 rgba(8, 11, 15, 0.3),
+    4px 5px 0 rgba(96, 104, 112, 0.48),
+    7px 10px 10px rgba(0, 0, 0, 0.3);
+  transform: translate3d(0, -1px, -6px) rotate(-2deg);
+}
+.service-card:is(:hover, :focus-visible) .service-card__icon svg {
+  filter: drop-shadow(1px 1px 0 rgba(255, 255, 255, 0.56))
+    drop-shadow(2px 3px 0 rgba(136, 144, 152, 0.76))
+    drop-shadow(4px 6px 5px rgba(0, 0, 0, 0.38));
+  transform: translate3d(-0.5px, -1px, 8px) rotateX(2deg) rotateY(-2deg);
+}
+html.light .service-card__icon,
+html.light .service-card:is(:hover, :focus-visible) .service-card__icon {
+  color: #d9dde1 !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-card__icon,
+  .service-card__icon::before,
+  .service-card__icon::after,
+  .service-card__icon svg,
+  .service-card:is(:hover, :focus-visible) .service-card__icon,
+  .service-card:is(:hover, :focus-visible) .service-card__icon::before,
+  .service-card:is(:hover, :focus-visible) .service-card__icon svg {
+    transition: none;
+  }
+  .service-card:is(:hover, :focus-visible) .service-card__icon {
+    transform: none;
+  }
+  .service-card:is(:hover, :focus-visible) .service-card__icon::before {
+    transform: translateZ(-6px) rotate(-2deg);
+  }
+  .service-card:is(:hover, :focus-visible) .service-card__icon svg {
+    transform: translateZ(7px) rotateX(2deg) rotateY(-2deg);
+  }
+}
