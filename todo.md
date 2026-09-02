@@ -190,4 +190,4 @@
 - [x] Add tablet/mobile gridline scale overrides so smaller screens have a more open pattern.
 - [x] Add a subtle scroll-driven gridline fade after the main hero with reduced-motion-safe behavior.
 - [x] Validate scroll fade, responsive scale, theme contrast, layout, tests, and TypeScript.
-- [ ] Synchronize the responsive gridline update to GitHub main and verify the remote commit.
+- [x] Synchronize the responsive gridline update to GitHub main and verify the remote commit.
