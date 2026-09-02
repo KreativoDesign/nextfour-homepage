@@ -11,7 +11,7 @@ interface ServiceDetailHeroProps {
   color: string;
   glow: string;
   icon: React.ComponentType<{ size: number; className: string }>;
-  quickLinks?: ReadonlyArray<{ label: string; href: string }>;
+  quickLinks?: readonly { label: string; href: string }[];
 }
 
 export default function ServiceDetailHero({
@@ -25,26 +25,43 @@ export default function ServiceDetailHero({
   return (
     <section
       className="service-detail-hero"
-      style={{ "--service-accent": color, "--service-glow": glow } as CSSProperties}
+      style={
+        { "--service-accent": color, "--service-glow": glow } as CSSProperties
+      }
     >
-      <div className="service-detail-hero__ambient" style={{ background: glow }} aria-hidden="true" />
+      <div
+        className="service-detail-hero__ambient"
+        style={{ background: glow }}
+        aria-hidden="true"
+      />
       <div className="service-detail-hero__grid" aria-hidden="true" />
-      
+
       <div className="service-detail-hero__content">
         <div className="service-detail-hero__breadcrumb">
           <a href="/" className="service-detail-hero__breadcrumb-link">
             Home
           </a>
-          <ChevronRight size={16} className="service-detail-hero__breadcrumb-sep" />
+          <ChevronRight
+            size={16}
+            className="service-detail-hero__breadcrumb-sep"
+          />
           <a href="/#services" className="service-detail-hero__breadcrumb-link">
             Services
           </a>
-          <ChevronRight size={16} className="service-detail-hero__breadcrumb-sep" />
-          <span className="service-detail-hero__breadcrumb-current">{title}</span>
+          <ChevronRight
+            size={16}
+            className="service-detail-hero__breadcrumb-sep"
+          />
+          <span className="service-detail-hero__breadcrumb-current">
+            {title}
+          </span>
         </div>
 
         <div className="service-detail-hero__eyebrow" style={{ color }}>
-          <span className="service-detail-hero__eyebrow-dot" aria-hidden="true" />
+          <span
+            className="service-detail-hero__eyebrow-dot"
+            aria-hidden="true"
+          />
           <span>NextFour service</span>
         </div>
 
@@ -60,9 +77,16 @@ export default function ServiceDetailHero({
         <p className="service-detail-hero__subtitle">{subtitle}</p>
 
         {quickLinks && quickLinks.length > 0 && (
-          <nav className="service-detail-hero__quick-links" aria-label="Jump to page sections">
-            {quickLinks.map((link) => (
-              <a className="service-detail-hero__quick-link" href={link.href} key={link.href}>
+          <nav
+            className="service-detail-hero__quick-links"
+            aria-label="Jump to page sections"
+          >
+            {quickLinks.map(link => (
+              <a
+                className="service-detail-hero__quick-link"
+                href={link.href}
+                key={link.href}
+              >
                 <span>{link.label}</span>
                 <ArrowDown size={16} aria-hidden="true" />
               </a>

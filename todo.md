@@ -149,3 +149,10 @@
 - [x] Add a subtle, layout-safe light/dark surface transition with a reduced-motion fallback.
 - [x] Validate transition timing, theme responsiveness, accessibility, tests, and TypeScript.
 - [x] Synchronize the theme-transition update to GitHub main and verify the remote commit.
+- [x] Fix the homepage portfolio carousel so it wraps continuously on large desktop screens.
+- [x] Validate the carousel looping interaction at wide, laptop, and mobile widths.
+- [ ] Synchronize the carousel fix to GitHub main and verify the remote commit.
+- [x] Resolve the readonly quick-link TypeScript regression uncovered during carousel validation.
+- [ ] Save a checkpoint for the wide-screen carousel fix.
+- [ ] Push the carousel fix commit to the configured GitHub main branch.
+- [ ] Verify the remote main SHA matches the local commit, then mark the synchronization todo complete.

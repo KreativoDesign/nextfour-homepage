@@ -2,12 +2,20 @@
  * NextFour design reminder: Treat the carousel as a tactile horizontal service rail.
  * Its controls and staggered glass cards should signal calm, premium exploration.
  */
-import { useCallback, useEffect, useState, type KeyboardEvent, type WheelEvent } from "react";
+import {
+  useCallback,
+  useEffect,
+  useState,
+  type KeyboardEvent,
+  type WheelEvent,
+} from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { services } from "@/lib/nextfour-data";
-import { getLoopingIndex } from "@/lib/carousel";
+import { createLoopingItems } from "@/lib/carousel";
 import ServiceCard from "@/components/ServiceCard";
+
+const LOOPED_SERVICES = createLoopingItems(services, 3);
 
 export default function ServiceCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -15,14 +23,16 @@ export default function ServiceCarousel() {
     loop: true,
     containScroll: false,
     duration: 32,
+    startIndex: services.length,
   });
+  const [selectedSnap, setSelectedSnap] = useState(services.length);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [snapCount, setSnapCount] = useState(services.length);
 
   const updateSelection = useCallback(() => {
     if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-    setSnapCount(emblaApi.scrollSnapList().length);
+    const currentSnap = emblaApi.selectedScrollSnap();
+    setSelectedSnap(currentSnap);
+    setSelectedIndex(currentSnap % services.length);
   }, [emblaApi]);
 
   useEffect(() => {
@@ -36,18 +46,23 @@ export default function ServiceCarousel() {
     };
   }, [emblaApi, updateSelection]);
 
-  const scrollByDirection = useCallback((direction: 1 | -1) => {
-    if (!emblaApi) return;
-    const snapList = emblaApi.scrollSnapList();
-    if (!snapList.length) return;
-
-    const currentIndex = emblaApi.selectedScrollSnap();
-    const nextIndex = getLoopingIndex(currentIndex, direction, snapList.length);
-    emblaApi.scrollTo(nextIndex);
-  }, [emblaApi]);
+  const scrollByDirection = useCallback(
+    (direction: 1 | -1) => {
+      if (!emblaApi) return;
+      if (direction === 1) {
+        emblaApi.scrollNext();
+      } else {
+        emblaApi.scrollPrev();
+      }
+    },
+    [emblaApi]
+  );
 
   const handleWheel = (event: WheelEvent<HTMLDivElement>) => {
-    const delta = Math.abs(event.deltaY) >= Math.abs(event.deltaX) ? event.deltaY : event.deltaX;
+    const delta =
+      Math.abs(event.deltaY) >= Math.abs(event.deltaX)
+        ? event.deltaY
+        : event.deltaX;
     if (Math.abs(delta) < 3) return;
     event.preventDefault();
     scrollByDirection(delta > 0 ? 1 : -1);
@@ -65,7 +80,11 @@ export default function ServiceCarousel() {
   };
 
   return (
-    <section id="services" className="services-section" aria-label="Explore NextFour services">
+    <section
+      id="services"
+      className="services-section"
+      aria-label="Explore NextFour services"
+    >
       <div className="nf-container services-section__shell">
         <div
           className="carousel-viewport"
@@ -76,11 +95,10 @@ export default function ServiceCarousel() {
           aria-label="Looping service carousel. Use the mouse wheel, touchpad, drag, or left and right arrow keys to move through services."
         >
           <div className="carousel-track">
-            {services.map((service, index) => (
+            {LOOPED_SERVICES.map(({ item: service }, index) => (
               <div
-                className={`carousel-slide${index === selectedIndex ? " is-selected" : ""}`}
-                data-selected={index === selectedIndex ? "true" : "false"}
-                key={service.title}
+                className={`carousel-slide ${index === selectedSnap ? "is-selected" : ""}`}
+                key={`${service.title}-${index}`}
               >
                 <ServiceCard service={service} index={index} />
               </div>
@@ -88,32 +106,59 @@ export default function ServiceCarousel() {
           </div>
         </div>
 
-        <div className="carousel-edge-controls" aria-label="Carousel directional controls">
-          <button className="carousel-arrow carousel-arrow--edge" type="button" onClick={() => scrollByDirection(-1)} aria-label="Previous service">
+        <div
+          className="carousel-edge-controls"
+          aria-label="Carousel directional controls"
+        >
+          <button
+            className="carousel-arrow carousel-arrow--edge"
+            type="button"
+            onClick={() => scrollByDirection(-1)}
+            aria-label="Previous service"
+          >
             <ChevronLeft size={23} strokeWidth={1.45} aria-hidden="true" />
           </button>
-          <button className="carousel-arrow carousel-arrow--edge" type="button" onClick={() => scrollByDirection(1)} aria-label="Next service">
+          <button
+            className="carousel-arrow carousel-arrow--edge"
+            type="button"
+            onClick={() => scrollByDirection(1)}
+            aria-label="Next service"
+          >
             <ChevronRight size={23} strokeWidth={1.45} aria-hidden="true" />
           </button>
         </div>
         <div className="carousel-controls">
-          <button className="carousel-arrow carousel-arrow--inline" type="button" onClick={() => scrollByDirection(-1)} aria-label="Previous service">
+          <button
+            className="carousel-arrow carousel-arrow--inline"
+            type="button"
+            onClick={() => scrollByDirection(-1)}
+            aria-label="Previous service"
+          >
             <ChevronLeft size={23} strokeWidth={1.45} aria-hidden="true" />
           </button>
-          <div className="carousel-dots" role="tablist" aria-label="Choose a service">
-            {Array.from({ length: snapCount }).map((_, index) => (
+          <div
+            className="carousel-dots"
+            role="tablist"
+            aria-label="Choose a service"
+          >
+            {services.map((service, index) => (
               <button
-                key={index}
+                key={service.title}
                 className={`carousel-dot ${index === selectedIndex ? "is-active" : ""}`}
                 type="button"
                 role="tab"
                 aria-selected={index === selectedIndex}
-                aria-label={`Go to service ${index + 1}`}
-                onClick={() => emblaApi?.scrollTo(index)}
+                aria-label={`Go to ${service.title}`}
+                onClick={() => emblaApi?.scrollTo(services.length + index)}
               />
             ))}
           </div>
-          <button className="carousel-arrow carousel-arrow--inline" type="button" onClick={() => scrollByDirection(1)} aria-label="Next service">
+          <button
+            className="carousel-arrow carousel-arrow--inline"
+            type="button"
+            onClick={() => scrollByDirection(1)}
+            aria-label="Next service"
+          >
             <ChevronRight size={23} strokeWidth={1.45} aria-hidden="true" />
           </button>
         </div>
