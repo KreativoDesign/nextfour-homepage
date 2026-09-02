@@ -1,5 +1,20 @@
 import { describe, expect, it } from "vitest";
-import { createLoopingItems, getLoopingIndex } from "./carousel";
+import {
+  CAROUSEL_SCROLL_DURATION,
+  createLoopingItems,
+  getCarouselScrollDuration,
+  getLoopingIndex,
+} from "./carousel";
+
+describe("getCarouselScrollDuration", () => {
+  it("uses the eased duration for regular interaction", () => {
+    expect(getCarouselScrollDuration(false)).toBe(CAROUSEL_SCROLL_DURATION);
+  });
+
+  it("disables animated settling for reduced-motion users", () => {
+    expect(getCarouselScrollDuration(true)).toBe(0);
+  });
+});
 
 describe("getLoopingIndex", () => {
   it("wraps forward from the last snap to the first", () => {

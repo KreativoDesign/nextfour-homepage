@@ -156,3 +156,7 @@
 - [x] Save a checkpoint for the wide-screen carousel fix.
 - [x] Push the carousel fix commit to the configured GitHub main branch.
 - [x] Verify the remote main SHA matches the local commit, then mark the synchronization todo complete.
+- [x] Inspect the current Embla carousel configuration and identify the easing and duration parameters.
+- [x] Implement smooth easing for carousel arrow clicks and drag interactions, with a reduced-motion fallback.
+- [x] Validate the eased carousel motion, looping, responsive layout, tests, and TypeScript.
+- [ ] Synchronize the carousel easing update to GitHub main and verify the remote commit.

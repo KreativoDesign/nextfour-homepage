@@ -12,21 +12,32 @@ import {
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { services } from "@/lib/nextfour-data";
-import { createLoopingItems } from "@/lib/carousel";
+import { createLoopingItems, getCarouselScrollDuration } from "@/lib/carousel";
 import ServiceCard from "@/components/ServiceCard";
 
 const LOOPED_SERVICES = createLoopingItems(services, 3);
 
 export default function ServiceCarousel() {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const scrollDuration = getCarouselScrollDuration(prefersReducedMotion);
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     loop: true,
     containScroll: false,
-    duration: 32,
+    // Embla uses this duration for both programmatic snaps and drag settling.
+    duration: scrollDuration,
     startIndex: services.length,
   });
   const [selectedSnap, setSelectedSnap] = useState(services.length);
   const [selectedIndex, setSelectedIndex] = useState(0);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePreference = () => setPrefersReducedMotion(mediaQuery.matches);
+    updatePreference();
+    mediaQuery.addEventListener?.("change", updatePreference);
+    return () => mediaQuery.removeEventListener?.("change", updatePreference);
+  }, []);
 
   const updateSelection = useCallback(() => {
     if (!emblaApi) return;

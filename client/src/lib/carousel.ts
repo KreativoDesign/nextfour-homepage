@@ -1,3 +1,11 @@
+export const CAROUSEL_SCROLL_DURATION = 48;
+
+export function getCarouselScrollDuration(
+  prefersReducedMotion: boolean
+): number {
+  return prefersReducedMotion ? 0 : CAROUSEL_SCROLL_DURATION;
+}
+
 export type LoopingItem<T> = {
   item: T;
   originalIndex: number;
