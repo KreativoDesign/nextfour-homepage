@@ -177,3 +177,8 @@
 - [x] Validate the revised icon appearance, themes, responsive layout, reduced-motion behavior, tests, and TypeScript.
 - [x] Synchronize the restrained 3D service-icon update to GitHub main and verify the remote commit.
 - [x] Save a final checkpoint after the successful matte 3D icon GitHub synchronization, then close the synchronization item.
+- [x] Inspect the homepage shell and existing background layers for the uploaded gridline integration.
+- [x] Upload the supplied 05.webp asset to managed web storage.
+- [x] Add the gridline image as a subtle full-homepage background with controlled opacity and contrast overlays.
+- [x] Validate background opacity, text/card readability, dark/light themes, responsive layout, tests, and TypeScript.
+- [ ] Synchronize the homepage gridline background update to GitHub main and verify the remote commit.

@@ -4341,3 +4341,39 @@ html.light .service-card:is(:hover, :focus-visible) .service-card__icon {
     transform: translateZ(7px) rotateX(2deg) rotateY(-2deg);
   }
 }
+
+/* Uploaded Homepage Gridline Background */
+.page-grid {
+  opacity: 0.32;
+  background-image:
+    linear-gradient(rgba(5, 6, 6, 0.54), rgba(5, 6, 6, 0.62)),
+    url("/manus-storage/homepage-gridlines_42c60ad9.webp"),
+    linear-gradient(rgba(176, 255, 219, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(176, 255, 219, 0.022) 1px, transparent 1px);
+  background-position:
+    center top,
+    center top,
+    center top,
+    center top;
+  background-size:
+    cover,
+    cover,
+    44px 44px,
+    44px 44px;
+  background-repeat: no-repeat, no-repeat, repeat, repeat;
+  background-blend-mode: normal, normal, normal, normal;
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    rgba(0, 0, 0, 0.92) 72%,
+    rgba(0, 0, 0, 0.68) 100%
+  );
+}
+html.light .page-grid {
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(244, 247, 242, 0.84), rgba(244, 247, 242, 0.9)),
+    url("/manus-storage/homepage-gridlines_42c60ad9.webp"),
+    linear-gradient(rgba(20, 33, 25, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 33, 25, 0.04) 1px, transparent 1px);
+}
