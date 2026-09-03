@@ -409,6 +409,17 @@
   .service-cta .btn-primary:hover{background:var(--bg-alt); box-shadow:none;}
   @media (max-width:760px){.service-grid{grid-template-columns:1fr;} .service-cta{padding:26px 22px;}}
 
+  /* ---------- Legal placeholder pages ---------- */
+  .legal-page{background:var(--panel-deep);}
+  .legal-hero{padding-bottom:76px;}
+  .legal-hero h1{max-width:14ch;}
+  .legal-content{border-bottom:1px solid var(--border-soft);}
+  .legal-notice{padding:34px; max-width:760px;}
+  .legal-notice h2{font-size:24px; margin:12px 0 10px;}
+  .legal-notice p{color:var(--grey); font-size:15px; max-width:64ch;}
+  .legal-notice .btn-primary{margin-top:18px;}
+  @media (max-width:600px){.legal-notice{padding:26px 22px;}}
+
   /* ---------- Monitoring demo ---------- */
   .monitor{border-bottom:1px solid var(--border-soft); background:var(--bg-alt);}
   .monitor-grid{display:grid; grid-template-columns:1fr 1.1fr; gap:16px; align-items:stretch;}
