@@ -169,7 +169,7 @@
 
     <!-- HERO -->
     <section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline poster="assets/img/hero-core.png" aria-hidden="true">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/img/hero-core.png" aria-hidden="true">
         <source src="https://www.openv.co.za/wp-content/uploads/2025/06/Webvid.mp4" type="video/mp4" media="(min-width: 881px)">
         <source src="https://www.openv.co.za/wp-content/uploads/2025/07/web-mobile-opv-vid.mp4" type="video/mp4" media="(max-width: 880px)">
       </video>
@@ -836,17 +836,17 @@
             <div class="cf-row">
               <div class="cf-field">
                 <label for="cf-name">Name</label>
-                <input type="text" id="cf-name" name="name" required>
+                <input type="text" id="cf-name" name="name" maxlength="120" required>
               </div>
               <div class="cf-field">
                 <label for="cf-email">Email</label>
-                <input type="email" id="cf-email" name="email" required>
+                <input type="email" id="cf-email" name="email" maxlength="254" required>
               </div>
             </div>
             <div class="cf-row">
               <div class="cf-field">
                 <label for="cf-company">Company</label>
-                <input type="text" id="cf-company" name="company">
+                <input type="text" id="cf-company" name="company" maxlength="160">
               </div>
               <div class="cf-field">
                 <label for="cf-industry">Industry</label>
@@ -867,7 +867,7 @@
             </div>
             <div class="cf-field">
               <label for="cf-message">What do you need help with?</label>
-              <textarea id="cf-message" name="message" rows="4"></textarea>
+              <textarea id="cf-message" name="message" rows="4" maxlength="4000"></textarea>
             </div>
             <button type="submit" class="btn-primary">Send to Open V</button>
           </form>

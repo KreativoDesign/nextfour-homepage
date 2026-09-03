@@ -116,8 +116,14 @@
   }
 
   // Hero video fallback
+  const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('.hero-video').forEach((video) => {
     video.addEventListener('error', () => video.classList.add('video-fallback'), { once: true });
+    if (reduceMotion) {
+      video.pause();
+      video.classList.add('video-fallback');
+      return;
+    }
     const playAttempt = video.play();
     if (playAttempt && typeof playAttempt.catch === 'function') {
       playAttempt.catch(() => video.classList.add('video-fallback'));
