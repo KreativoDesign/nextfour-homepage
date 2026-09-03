@@ -460,7 +460,7 @@
 
   /* ---------- Team page ---------- */
   .team-page{background:var(--panel-deep);}
-  .team-intro{padding:32px 0 8px;}
+  .team-intro{padding:116px 0 8px;}
   .team-intro-inner{display:grid; grid-template-columns:1.5fr 1fr; gap:22px; align-items:end;}
   .team-intro h1{font-size:clamp(32px,4vw,52px); line-height:1.08; max-width:14ch; margin:0;}
   .team-intro p{margin:0; color:var(--grey); font-size:15px; line-height:1.7; max-width:52ch;}
@@ -479,6 +479,7 @@
   .team-role{font-family:var(--mono); font-size:10.5px; color:var(--grey-dim); letter-spacing:0.04em; text-transform:uppercase; line-height:1.5;}
   @media (max-width:1024px){.team-intro-inner{grid-template-columns:1fr;}.team-group-grid{grid-template-columns:repeat(2,minmax(0,1fr));}} 
   @media (max-width:760px){.team-groups{grid-template-columns:1fr;}.team-group-grid{grid-template-columns:1fr;}} 
+  @media (max-width:600px){.team-intro{padding-top:96px;}}
 
   /* ---------- Case studies ---------- */
   .cases{border-bottom:1px solid var(--border-soft);}
