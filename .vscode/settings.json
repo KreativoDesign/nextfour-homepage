@@ -1,0 +1,7 @@
+{
+  "editor.formatOnSave": true,
+  "files.associations": { "*.html": "html" },
+  "liveServer.settings.port": 5500,
+  "emmet.includeLanguages": { "html": "html" },
+  "css.lint.unknownAtRules": "ignore"
+}
